@@ -19,8 +19,8 @@ runtime! archlinux.vim
 "colo slate
 "colorscheme default
 hi LineNr term=bold cterm=bold ctermfg=1 guifg=Grey guibg=Grey90
-set nocompatible			  " be iMproved, required
-filetype off				  " required
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -31,19 +31,19 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'majutsushi/tagbar'
-"Plugin 'fisadev/FixedTaskList.vim'		" Pending tasks list
-"Plugin 'rosenfeld/conque-term'			" Consoles as buffers
+"Plugin 'fisadev/FixedTaskList.vim'     " Pending tasks list
+"Plugin 'rosenfeld/conque-term'         " Consoles as buffers
 "Plugin 'tpope/vim-surround'
 
-"Plugin 'garbas/vim-snipmate'			" Snippets manager
-"Plugin 'MarcWeber/vim-addon-mw-utils'	" dependencies #1
-"Plugin 'tomtom/tlib_vim'				" dependencies #2
-"Plugin 'honza/vim-snippets'				" snippets repo
+"Plugin 'garbas/vim-snipmate'           " Snippets manager
+"Plugin 'MarcWeber/vim-addon-mw-utils'  " dependencies #1
+"Plugin 'tomtom/tlib_vim'               " dependencies #2
+"Plugin 'honza/vim-snippets'                " snippets repo
 
-"Plugin 'klen/python-mode'				" Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
-Plugin 'davidhalter/jedi-vim'			" Jedi-vim autocomplete plugin
-"Plugin 'mitsuhiko/vim-jinja'			" Jinja support for vim
-"Plugin 'mitsuhiko/vim-python-combined'	" Combined Python 2/3 for Vim
+"Plugin 'klen/python-mode'              " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
+Plugin 'davidhalter/jedi-vim'           " Jedi-vim autocomplete plugin
+"Plugin 'mitsuhiko/vim-jinja'           " Jinja support for vim
+"Plugin 'mitsuhiko/vim-python-combined' " Combined Python 2/3 for Vim
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Shougo/neocomplete.vim'
@@ -62,9 +62,9 @@ let g:ho_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 call vundle#end()
-filetype plugin on			  
+filetype plugin on            
 filetype plugin indent on
-let python_highlight_all=1	  
+let python_highlight_all=1    
 syntax on
 let g:go_disable_autoinstall = 0
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -77,7 +77,6 @@ let g:indentLine_char = '│'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']  
 set number
-
 
 " настройки Vim-Airline
 "set laststatus=2
