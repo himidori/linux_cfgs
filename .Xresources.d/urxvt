@@ -1,0 +1,19 @@
+urxvt*background: termbg
+urxvt*foreground: termfg
+URxvt*depth: 32
+!URxvt*background: rgba:0000/0000/0000/c800
+!URxvt*background: rgba:0000/0000/0000/2710
+!URxvt.transparent: true
+!URxvt.shading: 10
+!URxvt.inheritPixmap: true
+!URxvt.font: xft:monospace:size=11
+!URxvt.font: xft:xos4 Terminus:size=13
+URxvt*font: xft:Gohu GohuFont:size=11
+!URxvt*font: xft:lucy tewi:size=9
+URxvt.letterspaace: 0
+URxvt.perl-ext-common: default,clipboard
+urxvt*scrollBar: off
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd: xsel -ib

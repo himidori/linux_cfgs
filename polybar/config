@@ -1,0 +1,205 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #000
+foreground = #fff
+;background = ${xrdb:color0:#222}
+;background-alt = #444
+;foreground = ${xrdb:color15:#222}
+;foreground-alt =  ${xrdb:color2:#555}
+highlight = ${xrdb:color7}
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+monitor = ${env:MONITOR}
+width = 100%
+height = 30
+radius = 0
+fixed-center = true
+
+;background = ${colors.background}
+background = #8A000000
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #872020
+
+border-size = 0
+border-color = #fff
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+#font-0 = xos4 Terminus:fixed:pixelsize=10;1
+#font-1 = xos4 Terminus:size=14;4
+#font-2 = xos4 Terminus:pixelsize=10;1
+#font-3 = FontAwesome:Size=12;2
+
+;font-0 = Gohu GohuFont:pixelsize=11;1
+;font-1 = lucy tewi:fixed:pixelsize=10;1
+;font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-3 = lucy tewi:pixelsize=10;1
+;font-4 = fontawesome:pixelsize=8;1
+
+font-0 = xos4 Terminus:size=10;0
+font-1 = FontAwesome:size=12;0
+font-2 = lucy tewi:size=12;0
+font-3 = FontAwesome:size=12;0
+
+modules-left = i3
+modules-center = cmus 
+modules-right = updates volume weather disk load xkeyboard date menu0
+
+overline-size = 2
+overline-color = #101010
+underline-size = 4
+underline-color = #101010
+
+#tray-positon = right
+#tray-padding = 2
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:60:...%
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+;label-mode-foreground = ${colors.foreground}
+;label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = 
+;label-focused-foreground = #fff
+;label-focused-background = #fff
+;label-focused-underline = #ee829f
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = 
+;label-unfocused-padding = ${self.label-mode-padding}
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = 
+;label-visible-background = #fff
+#label-visible-underline = ${self.label-focused-underline}
+;label-visible-underline = #2f343f
+;label-visible-padding = ${self.label-mode-padding}
+label-visible-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = 
+;label-urgent-background = #fff
+;;label-urgent-foreground = #fff
+;label-urgent-padding = ${self.label-mode-padding}
+label-urgent-padding = 2
+
+[module/cmus]
+type = custom/script
+interval = 1
+label =  %output%
+exec = /usr/lib/i3blocks/cmus
+
+[module/disk]
+type = custom/script
+interval = 1
+format-underline = #fff
+label =  %output%
+exec = /usr/lib/i3blocks/disk
+
+[module/load]
+type = custom/script
+interval = 1
+format-underline = #fff
+label =  %output%
+exec = /usr/lib/i3blocks/load_average
+
+[module/weather]
+type = custom/script
+interval = 120
+format-underline = #fff
+label = %output%
+exec = /usr/lib/i3blocks/weather
+
+[module/xkeyboard]
+format-underline = #fff
+type = internal/xkeyboard
+label-layout =  %layout%
+
+[module/volume]
+type = custom/script
+interval = 1
+format-underline = #fff
+label =  %output%
+exec = /usr/lib/i3blocks/volume
+
+[module/updates]
+type = custom/script
+format-underline = #fff
+exec = checkupdates | wc -l
+interval = 180
+label  =  %output%
+
+[module/menu0]
+type = custom/menu
+format = <label-toggle> <menu>
+format-underline = ${colors.white}
+format-padding = 1
+;format-margin = 1
+menu-0-0 =  shutdown
+menu-0-0-exec = shutdown now
+menu-0-1 =  restart
+menu-0-1-exec = shutdown -r now
+label-open = 
+label-close =
+
+#[module/pavolume]
+#type = custom/script
+#interval = 2
+#label = %output %
+#exec = ~/.config/polybar/pavolume.sh
+#click-right = exec pavucontrol
+#click-left = ~/.config/polybar/pavolume.sh --togmute
+#scroll-up = ~/.config/polybar/pavolume.sh --up
+#scroll-down = ~/.config/polybar/pavolume.sh --down
+
+[module/date]
+type = internal/date
+#date =    %%{F#99}%Y-%m-%d%%{F-} %a  %%{F#fff}%H:%M%%{F-}
+#date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+format-underline = #fff
+date =  %a %d %b %H:%M:%S
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+; vim:ft=dosini

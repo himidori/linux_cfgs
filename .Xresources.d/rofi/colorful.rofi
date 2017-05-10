@@ -1,0 +1,15 @@
+!-color-window background, border color, separator color
+!
+rofi.color-window: #000, #000, #000
+
+!-color-normal background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-normal: #000, #fff, #000, #000, #f2b
+
+!-color-active background, foreground, background alt, highlight background, hightlight foreground
+!
+rofi.color-active: #b9b9b9, #101010, #b9b9b9, #b9b9b9, #f7f7f7
+
+!-color-urgent background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
