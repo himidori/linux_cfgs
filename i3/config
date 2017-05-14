@@ -13,7 +13,10 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
+font pango:xos4 Terminus 9
+#font pango:Misc Tamsyn 9
+
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -29,6 +32,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+#remap caps lock to escape
+exec --no-startup-id setxkbmap -option caps:escape
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -38,7 +44,8 @@ bindsym $mod+Shift+q kill
 set $dmenu_col "#ee829f"
 set $dmenu_bg "#000"
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb black -sb $dmenu_bg -sf $dmenu_col
+#bindsym $mod+d exec dmenu_run -nb black -sb $dmenu_bg -sf $dmenu_col -fn fixed:style=regular:pixelsize=14
+bindsym $mod+d exec rofi -show run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -158,7 +165,7 @@ assign [class="Ghb"] $workspace5
 assign [class="discord"] $workspace6
 assign [class="Anki"] $workspace5
 assign [class="jetbrains-idea"] $workspace3
-assign [class="qutebrowser"] $workspace1
+assign [class="Pale moon"] $workspace1
 
 for_window [class="Ghb"] floating enable
 for_window [class="Gimp"] floating enable
@@ -213,16 +220,21 @@ bindsym $mod+F1 exec "amixer -q sset Master,0 toggle"
 
 
 set $bg-color        #000
-set $inactive-bg-color   #000
+set $inactive-bg-color   #101010
 set $text-color      #FFFFFF
 set $inactive-text-color #797777
 set $urgent-bg-color     #000
 set $cyan #1793d1
 set $pink #ee829f
+set $bg-color2 #2f343f
+set $inactive-bg2 #2f343f
+set $text-color2 #f3f4f5
+set $inactive-text2 #676e7d
+set $urgent-bg2 #e53935
 
 #window colors
                         #border             background          text                    indicator
-client.focused          #000                $pink               $text-color             #000
+client.focused          #000                #f7f7f7             $text-color             #000
 client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #000
 client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #000
 client.urgent           $urgent-bg-color    $urgent-bg-color    $inactive-text-color    #000
@@ -230,17 +242,19 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $inactive-text-c
 
 bar {
         #status_command i3status
-        status_command i3blocks
+        i3bar_command ~/.config/polybar/launch.sh 
+        #height 25
+        #status_command i3blocks
 
     colors {
-#       background $bg-color
-#       statusline #fff 
+        #background #1c1c1c
+        #statusline #80808080 
 #       separator #000
 #                           #border             background          text
-        focused_workspace  $bg-color            $bg-color           $pink
-        active_workspace   $bg-color            $bg-color           $inactive-text-color
+        focused_workspace   $bg-color           $bg-color           $pink
+        active_workspace    $bg-color           $bg-color           $inactive-text-color
         inactive_workspace $inactive-bg-color   $inactive-bg-color  $inactive-text-color
-        urgent_workspace   $urgent-bg-color     $urgent-bg-color    #fff
+        urgent_workspace    $urgent-bg-color    $urgent-bg-color    #fff
     }
 }
 
@@ -248,15 +262,13 @@ bar {
 
 #i3 gaps
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 4
 #smart_gaps on
-#smart_borders on
+smart_borders on
 
 exec telegram-desktop
-#exec firefox
-#exec chromium
 #exec compton --config ~/.compton
 #exec xcompmgr -f
 exec compton --config ~/.config/compton.conf -b 
@@ -268,4 +280,5 @@ exec_always xset m 0 0
 #exec nvidia-settings --assign CurrentMetaMode="DVI-I-0:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }"
 exec xinput -map-to-output "Wacom Bamboo Connect Pen Pen (0)" DVI-D-0
 exec shutter
-exec qutebrowser
+exec palemoon
+exec xrdb -merge ~/.Xresources
