@@ -4,7 +4,7 @@ rofi.color-window: #000, #000, #000
 
 !-color-normal background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-normal: #000, #fff, #000, #000, #f2b
+rofi.color-normal: #000, #fff, #000, #000, #C795AE
 
 !-color-active background, foreground, background alt, highlight background, hightlight foreground
 !

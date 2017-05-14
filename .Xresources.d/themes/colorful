@@ -6,22 +6,36 @@ URxvt*scrollColor: #d1d4e0
 URxvt*highlightColor: #252936
 URxvt*highlighTextColor: #C0C5CE
 
-
+!black
 URxvt*color0: #101218
-URxvt*color1: #ee829f
-URxvt*color2: #a5ffe1
-URxvt*color3: #ffefcc
-URxvt*color4: #97bbf7
-URxvt*color5: #c0b7f9
-URxvt*color6: #97e0ff
-URxvt*color7: #d1d4e0
 URxvt*color8: #7780a1
+
+!red
+URxvt*color1: #ee829f
 URxvt*color9: #ee829f
+
+!green
+URxvt*color2: #a5ffe1
 URxvt*color10: #a5ffe1
+
+!yellow
+URxvt*color3: #ffefcc
 URxvt*color11: #ffefcc
+
+!blue
+URxvt*color4: #97bbf7
 URxvt*color12: #97bbf7
+
+!magenta
+URxvt*color5: #c0b7f9
 URxvt*color13: #c0b7f9
+
+!cyan
+URxvt*color6: #97e0ff
 URxvt*color14: #97e0ff
+
+!white
+URxvt*color7: #d1d4e0
 URxvt*color15: #ffffff
 
 URxvt*color16: #ff99170
