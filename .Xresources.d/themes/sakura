@@ -1,0 +1,54 @@
+URxvt.scrollBar: false
+!URxvt*background: #101218
+!URxvt*foreground: #d1d4e0
+URxvt*cursorColor: #d1d4e0
+URxvt*scrollColor: #d1d4e0
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+
+!black
+URxvt*color0: #101218
+URxvt*color8: #6E6E6E
+
+!red
+URxvt*color1: #706073
+URxvt*color9: #706073
+
+!green
+URxvt*color2: #706073
+URxvt*color10: #706073
+
+!yellow
+URxvt*color3: #4E4A96
+URxvt*color11: #4E4A96
+
+!blue
+URxvt*color4: #7869D8
+URxvt*color12: #7869D8
+
+!magenta
+URxvt*color5: #7869D8
+URxvt*color13: #7869D8
+
+!cyan
+URxvt*color6: #7869D8
+URxvt*color14: #7869D8
+
+!white
+!URxvt*color7: #d1d4e0
+!URxvt*color15: #ffffff
+URxvt*color7: #706073
+URxvt*color15: #706073
+
+!URxvt*color16: #ff99170
+!URxvt*color17: #fcc09e
+!URxvt*color18: #1f222d
+!URxvt*color19: #252936
+!URxvt*color20: #C0C5CE
+!URxvt*color21: #C9CCDB
+
+!#define termbg #101218
+#define termbg rgba:0000/0000/0000/c800
+#define termfg #8F6996
+
+#include "../rofi/colorful.rofi"
