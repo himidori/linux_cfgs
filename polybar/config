@@ -17,7 +17,8 @@ background-alt = #121212
 foreground = #dfdfdf
 foreground-alt = #555
 foreground-icon = #DC7878
-primary = #0088cc
+;primary = #0088cc
+primary = #DC7878
 secondary = #e60053
 alert = #bd2c40
 
@@ -306,8 +307,8 @@ label-volume-foreground = #fff
 ;label-volume = %percentage%%
 
 format-muted-prefix = " "
-format-muted-foreground = #fff
-label-muted = sound muted
+format-muted-prefix-foreground = ${colors.foreground-icon}
+label-muted = mute
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
