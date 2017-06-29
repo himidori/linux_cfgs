@@ -1,0 +1,45 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #d1d4e0
+URxvt*scrollColor: #d1d4e0
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+
+!black
+URxvt*color0: #101010
+URxvt*color8: #998E8E
+
+!red
+URxvt*color1: #D36E7D
+URxvt*color9: #D36E7D
+
+!green
+URxvt*color2: #DC7878
+URxvt*color10: #DC7878
+
+!yellow
+!URxvt*color3: #E09865
+!URxvt*color11: #E09865
+URxvt*color3: #CC7481
+URxvt*color11: #CC7481
+
+!blue
+URxvt*color4: #889CB6
+URxvt*color12: #889CB6
+
+!magenta
+URxvt*color5: #82A9B9
+URxvt*color13: #82A9B9
+
+!cyan
+URxvt*color6: #A7C4C5
+URxvt*color14: #A7C4C5
+
+!white
+URxvt*color7: #998E8E
+URxvt*color15: #998E8E
+
+!#define termbg #101218
+#define termbg rgba:0000/0000/0000/A600
+#define termfg #f7f7f7
+
+#include "../rofi/summer.rofi"
