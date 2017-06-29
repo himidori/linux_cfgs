@@ -6,11 +6,11 @@ rofi.lines: 12
 
 !-color-window background, border color, separator color
 !
-rofi.color-window: #000, #000, #000
+rofi.color-window: #231F20, #231F20, #231F20
 
 !-color-normal background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-normal: #000, #fff, #000, #000, #D36E7D
+rofi.color-normal: #231F20, #fff, #231F20, #231F20, #D36E7D
 
 !-color-active background, foreground, background alt, highlight background, hightlight foreground
 !
