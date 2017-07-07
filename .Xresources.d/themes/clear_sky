@@ -1,0 +1,46 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #d1d4e0
+URxvt*scrollColor: #d1d4e0
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+
+!black
+URxvt*color0: #101010
+!URxvt*color8: #9C8BF6
+URxvt*color8: #B1A3FE
+
+!red
+URxvt*color1: #358DCA
+URxvt*color9: #358DCA
+
+!green
+URxvt*color2: #40B1FF
+URxvt*color10: #40B1FF
+
+!yellow
+!URxvt*color3: #79BFE2
+!URxvt*color11: #79BFE2
+URxvt*color3: #AED4D7
+URxvt*color11: #AED4D7
+
+!blue
+URxvt*color4: #889CB6
+URxvt*color12: #889CB6
+
+!magenta
+URxvt*color5: #82A9B9
+URxvt*color13: #82A9B9
+
+!cyan
+URxvt*color6: #85B3C5
+URxvt*color14: #85B3C5
+
+!white
+URxvt*color7: #D6D6D6
+URxvt*color15: #D6D6D6
+
+!#define termbg #101218
+#define termbg rgba:0000/0000/0000/A600
+#define termfg #f7f7f7
+
+#include "../rofi/clear_sky.rofi"
