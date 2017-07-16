@@ -1,0 +1,21 @@
+rofi.font: CtrlD 10
+rofi.color-enabled: true
+rofi.show-match: false
+rofi.width: 600
+rofi.lines: 12
+
+!-color-window background, border color, separator color
+!
+rofi.color-window: #00000000, #00000000, #00000000
+
+!-color-normal background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-normal: #00000000, #00000000, #00000000, #00000000, #00000000
+
+!-color-active background, foreground, background alt, highlight background, hightlight foreground
+!
+rofi.color-active: #00000000, #00000000, #00000000, #00000000, #00000000
+
+!-color-urgent background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-urgent: #00000000, #00000000, #00000000, #00000000, #00000000

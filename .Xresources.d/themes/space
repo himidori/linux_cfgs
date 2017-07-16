@@ -1,0 +1,55 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #d1d4e0
+URxvt*scrollColor: #d1d4e0
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+URxvt.internalBorder: 15
+
+!black
+URxvt*color0: #101010
+URxvt*color8: #615C5C
+
+!red
+URxvt*color1: #A1423E
+URxvt*color9: #A1423E
+
+!green
+!URxvt*color2: #4162B9
+!URxvt*color10: #4162B9
+URxvt*color2: #BD5C58
+URxvt*color10: #BD5C58
+
+!yellow
+!URxvt*color3: #79BFE2
+!URxvt*color11: #79BFE2
+!URxvt*color3: #4870DB
+!URxvt*color11: #4870DB
+URxvt*color3: #7B9FFF
+URxvt*color11: #7B9FFF
+
+!blue
+!URxvt*color4: #6088F1
+!URxvt*color12: #6088F1
+URxvt*color4: #708DD6
+URxvt*color12: #708DD6
+
+!magenta
+!URxvt*color5: #644FC4
+!URxvt*color13: #644FC4
+URxvt*color5: #8775D8
+URxvt*color13: #8775D8
+
+!cyan
+URxvt*color6: #789DE7
+URxvt*color14: #789DE7
+
+!white
+URxvt*color7: #D6D6D6
+URxvt*color15: #D6D6D6
+
+!#define termbg #101218
+!#define termbg rgba:0000/0000/0000/A600
+#define termbg #000
+#define termfg #f7f7f7
+
+#include "../rofi/space.rofi"
