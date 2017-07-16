@@ -9,36 +9,36 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #00000000
+background = ${xrdb:color0:#222}
 ;background = #121212
 #background-alt = #444
-background-alt = #121212
+background-alt = ${xrdb:color7:#222}
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = ${xrdb:color6:#222}
 foreground-alt = #555
-foreground-icon = #F0F5FF
+foreground-icon = ${xrdb:color7}
 ;primary = #0088cc
-primary = #DC7878
+primary = #8874E6
 secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
 monitor = ${env:MONITOR}
 width = 100%
-height = 25
-;offset-x = 0%
-;offset-y = 0%
-radius = 3.0
+height = 22
+;offset-x = 14%
+;offset-y = 2%
+;radius = 3.0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #f00
+line-size = 2
+line-color = #ffffff
 
-;border-size = 0
-;border-color = #00000000
+border-size = 20
+border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -50,14 +50,14 @@ module-margin-right = 2
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = Ubuntu:size=10;1
-font-1 = FontAwesome:size=10;0
-font-2 = Ubuntu:size=10;0
-font-3 = Ubuntu:size=10;0
+font-0 = FontAwesome:size=8;0
+font-1 = lucy tewi:size=10;0
+font-2 = lucy tewi:size=10;0
+font-3 = lucy tewi:size=10;0
 
 modules-left = i3
 modules-center = date
-modules-right = cmus weather volume disk menu0 
+modules-right = cmus volume menu0 
 
 ;tray-position = right
 tray-padding = 1
@@ -109,16 +109,13 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/weather]
 type = custom/script
 interval = 300
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-icon}
-;format-prefix-foreground = ${colors.foreground-icon}
+format-prefix = "temp. "
 exec = /usr/lib/i3blocks/weather
 
 [module/disk]
 type = custom/script
 interval = 5
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-icon}
+format-prefix = "free: "
 exec = /usr/lib/i3blocks/disk
 
 [module/cpuload]
@@ -130,7 +127,7 @@ exec = /usr/lib/i3blocks/load_average
 
 [module/cmus]
 type = custom/script
-format-prefix = ""
+format-prefix = ">"
 format-prefix-foreground = ${colors.foreground-icon}
 interval = 1
 exec = /usr/lib/i3blocks/cmus
@@ -163,33 +160,34 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 4
 label-mode-foreground = #000
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-foreground = #358DCA
-label-focused-background = #F0F5FF
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-foreground = ${xrdb:color0}
+label-focused-background = ${colors.foreground}
+label-focused-format-underline = #ffffff
+label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-foreground = ${xrdb:color6}
+label-unfocused-padding = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 ;label-visible-background = ${self.label-focused-background}
 ;label-visible-background = ${colors.background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+;label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-foreground = #F0F5FF
 label-urgent-background = #CA2C2C
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-padding = 4
 
 [module/mpd]
 type = internal/mpd
@@ -299,16 +297,11 @@ label = %date%
 
 [module/volume]
 type = internal/volume
-format-volume-prefix = " "
-format-volume-prefix-foreground = ${colors.foreground-icon}
 format-volume = <label-volume>
-label-volume = %percentage%%
+label-volume = vol. %percentage%%
 ;label-volume-foreground = ${root.foreground}
-label-volume-foreground = #fff
 ;label-volume = %percentage%%
 
-format-muted-prefix = " "
-format-muted-prefix-foreground = ${colors.foreground-icon}
 label-muted = mute
 
 bar-volume-width = 10
@@ -376,10 +369,10 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/menu0]
 type = custom/menu
-format-foreground = #F0F5FF
+format-foreground = ${colors.foreground}
 format = <label-toggle> <menu>
-;format-padding = 1
-;format-margin = 0
+format-padding = 1
+format-margin = 0
 
 menu-0-0 =  shutdown
 menu-0-0-exec = shutdown now
@@ -400,8 +393,8 @@ label-open = 
 label-open-foreground = ${colors.icon-foreground}
 label-close =  cancel
 label-close-foreground = ${colors.icon-foreground}
-label-separator = |
-label-separator-foreground = ${colors.icon-foreground}
+label-separator-foreground = ${colors.foreground-icon}
+label-separator = =
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1

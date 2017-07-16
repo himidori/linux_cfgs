@@ -15,7 +15,7 @@ set $mod Mod4
 #font pango:monospace 8
 #font pango:Ubuntu Bold 10
 #font pango:lucy tewi 9
-font pango:CtrlD 10
+font pango:CtrlD 13
 #font pango:Dejavu Sans:size=20
 #font pango:Misc Tamsyn 9
 #font pango:xos4 Terminus 9
@@ -128,6 +128,13 @@ set $workspace3 "3:dev"
 set $workspace4 "4:mus"
 set $workspace5 "5:rnd"
 set $workspace6 "6:voip"
+
+#set $workspace1 ""
+#set $workspace2 ""
+#set $workspace3 ""
+#set $workspace4 ""
+#set $workspace5 ""
+#set $workspace6 ""
 
 workspace $workspace1 output $secondMonitor
 workspace $workspace2 output $secondMonitor
@@ -256,15 +263,21 @@ set $inactive-bg2 #2f343f
 set $text-color2 #f3f4f5
 set $inactive-text2 #676e7d
 set $urgent-bg2 #e53935
+set_from_resource $fg i3wm.color0 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
 #oldborder = E91E63
 
 #window colors
                         #border             background          text                    indicator
-client.focused          #F0F5FF             #F0F5FF             $text-color             #E91E63
-client.unfocused        #101010             #101010             $inactive-text-color    #000
-client.focused_inactive #101010             #101010             $inactive-text-color    #000
-client.urgent           $urgent-bg-color    $urgent-bg-color    $inactive-text-color    #000
+#client.focused         #8874E6             #8874E6             $text-color             #E91E63
+#client.unfocused       #101010             #101010             $inactive-text-color    #000
+#client.focused_inactive #101010                #101010             $inactive-text-color    #000
+#client.urgent          $urgent-bg-color    $urgent-bg-color    $inactive-text-color    #000
 
+client.focused          $bg             $bg             $fg         $bg
+client.unfocused        #000            #000                $fg         $bg
+client.focused_inactive #000            #000                $fg         $bg
+client.urgent           $bg             $bg             $fg         $bg
 
 #bar {
 #       position top
@@ -293,7 +306,11 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $inactive-text-c
 
 
 #i3 gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
+#### window titles ####
+#for_window [class=".*"] title_format "<span font='Misc Termsyn 8'> %title</span>" 
+#for_window [class="^.*"] border normal 0
+#######################
 gaps inner 16
 gaps outer 10
 #smart_gaps on
@@ -308,10 +325,11 @@ bindsym $mod+Shift+z gaps outer current minus 5
 bindsym $mod+Shift+t gaps inner all set 16; gaps outer all set 10
 
 
-exec_always ~/.config/polybar/launch.sh
-
+#exec_always ~/.config/polybar/launch.sh
+exec --no-startup-id ~/walstartup 
 #keyboard
 exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
+#exec walset ~/.cache/wal/wal
 exec chromium
 exec Telegram
 #exec compton --config ~/.compton
@@ -322,11 +340,13 @@ exec compton --config ~/.config/compton.conf --resize-damage 3 -b
 #exec feh --bg-scale ~/Pictures/wallpaper4.jpg
 #exec discord
 #exec_always feh --bg-scale ~/Pictures/wallpapers/1.jpg
-exec_always feh --bg-scale ~/blue.png
+#exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
+#exec_always feh --bg-scale ~/Pictures/wallpapers/space.png
 exec_always xset m 0 0
 exec ~/notify.sh
 exec_always --no-startup-id python ~/Dev/python/dunst-fs-block.py
+#exec --no-startup-id wal -i "${HOME}/.cache/wal/wal"
 #exec nvidia-settings --assign CurrentMetaMode="DVI-I-0:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }" #exec xinput -map-to-output "Wacom Bamboo Connect Pen Pen (0)" DVI-D-0
 #exec shutter
 #exec palemoon
-exec xrdb -merge ~/.Xresources
+#exec xrdb -merge ~/.Xresources
