@@ -1,0 +1,1 @@
+wal -o "/home/yuimaestro/wal-set.sh" -i "$(< "${HOME}/.cache/wal/wal")"
