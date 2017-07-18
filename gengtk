@@ -1,19 +1,9 @@
-file="$HOME/.cache/wal/colors"
+source "$HOME/.cache/wal/colors.sh"
 
-while read line
-do
-    array+=("$line")
-done < $file
-
-for ((i=0; i < ${#array[*]}; i++))
-do
-    curline=${array[i]}
-    curline=${curline:1}
-    array[i]=$curline
-done
-
-background="${array[0]}"
-foreground="${array[6]}"
+background="$color0"
+background=${background:1}
+foreground="$color14"
+foreground=${foreground:1}
 
 oomoxconf="/tmp/autotheme"
 
