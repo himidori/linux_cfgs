@@ -1,6 +1,7 @@
 urxvt*background: termbg
 urxvt*foreground: termfg
 URxvt*depth: 32
+URxvt*internalBorder: 15
 !URxvt*background: rgba:0000/0000/0000/c800
 !URxvt*background: rgba:0000/0000/0000/2710
 !URxvt.transparent: true
@@ -8,12 +9,18 @@ URxvt*depth: 32
 !URxvt.inheritPixmap: true
 !URxvt.font: xft:monospace:size=11
 !URxvt.font: xft:xos4 Terminus:size=13
-URxvt*font: xft:Gohu GohuFont:size=11
+!urxvt*blurRadius: 20
+!URxvt*font: xft:Gohu GohuFont:size=11
 !URxvt*font: xft:lucy tewi:size=9
-URxvt.letterspaace: 0
+!URxvt*font: xft:Gohu GohuFont:size=14
+!URxvt*font: xft:CtrlD:size=10
+URxvt*font: xft:Misc Termsyn:size=11
+URxvt.letterspace: 1
 URxvt.perl-ext-common: default,clipboard
 urxvt*scrollBar: off
-URxvt.iso14755: False
+!URxvt.iso14755: False
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.clipboard.copycmd: xsel -ib
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
