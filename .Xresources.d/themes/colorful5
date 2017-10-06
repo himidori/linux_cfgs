@@ -1,0 +1,46 @@
+URxvt.scrollBar: false
+!URxvt*cursorColor: #C1C8C9
+URxvt*cursorColor: #CC6666
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+URxvt.internalBorder: 15
+
+!black
+!URxvt*color0: #111313
+URxvt*color0: #1C1E21
+URxvt*color8: #969896
+
+!red
+URxvt*color1: #9E6B71
+URxvt*color9: #B69094
+
+!green
+URxvt*color2: #719E6B
+URxvt*color10: #94B690
+
+!yellow
+URxvt*color3: #9E986C
+URxvt*color11: #B5B18F
+
+!blue
+URxvt*color4: #6C8B9E
+URxvt*color12: #90A7B6
+
+!magenta
+URxvt*color5: #986B9E
+URxvt*color13: #B290B6
+
+!cyan
+URxvt*color6: #6B9E98
+URxvt*color14: #90B6B3
+
+!white
+URxvt*color7: #B8BABA
+URxvt*color15: #CDCFCE
+
+!#define termbg #111313
+#define termbg #1C1E21
+#define termfg #B8BABA
+
+#include "../rofi/emacs.rofi"
