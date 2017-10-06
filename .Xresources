@@ -1,20 +1,32 @@
 !include ".Xresources.d/themes/colorful"
-!include ".Xresources.d/themes/grayscale"
-#include ".Xresources.d/themes/colorful2"
+##include ".Xresources.d/themes/grayscale"
+!#include ".Xresources.d/themes/colorful2"
+!#include ".Xresources.d/themes/sakura"
+!#include ".Xresources.d/themes/colorful3"
+!#include ".Xresources.d/themes/tango"
+!#include ".Xresources.d/themes/pink"
+!#include ".Xresources.d/themes/summer"
+!#include ".Xresources.d/themes/clear_sky"
+!#include ".Xresources.d/themes/space"
+!#include ".Xresources.d/themes/sea"
+!#include ".Xresources.d/themes/colorful4"
+!#include ".Xresources.d/themes/emacs"
+#include ".Xresources.d/themes/colorful5"
 
 !-- Xft -- !
 Xft.dpi: 96
 Xft.antialias: true
-Xft.rgba: rgb
+Xft.rgba: rgba
 Xft.hinting: true
 Xft.hintstyle: hintfull
 
 !ROFI
-rofi.font: xos4 Terminus 13
-rofi.color-enabled: true
-rofi.lines: 8
-!rofi.opacity: 50
-rofi.width: 800
-rofi.show-match: false
+!rofi.font: xos4 Terminus 13
+!rofi.color-enabled: true
+!rofi.lines: 8
+!rofi.opacity: 80
+!rofi.width: 800
+!rofi.show-match: false
+rofi.disable-history: true
 
 #include ".Xresources.d/urxvt"
