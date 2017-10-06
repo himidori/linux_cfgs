@@ -118,14 +118,6 @@
 (display-time-mode             t)
 (size-indication-mode          t)
 
-;; jabber
-(setq jabber-history-enabled t)
-(setq jabber-account-list '(
-                           ("yuimaestro@jabbim.ru"
-                           (:password . "nirvana123"))))
-(jabber-connect-all)
-
-
 ;; Neotree
 (require 'neotree)
 ;;(global-set-key [f8] 'neotree-toggle)
