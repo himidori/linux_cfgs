@@ -19,7 +19,7 @@ background-alt = ${xrdb:color7:#222}
 ;foreground = #E5E5E5
 foreground = #C5C8C6
 foreground-alt = #555
-foreground-icon = ${xrdb:color7}
+foreground-icon = #CC6666
 ;primary = #0088cc
 primary = #8874E6
 secondary = #e60053
@@ -48,19 +48,18 @@ padding-right = 3
 
 module-margin-left = 2
 module-margin-right = 2
-//dsds
 ;font-0 = liberation:pixelsize=10;1
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=9;0
-font-1 = Source Code Pro:size=9;1
-font-2 = Source Code Pro:size=9;1
-font-3 = Source Code Pro:size=9;1
+font-0 = FontAwesome:size=9;1
+font-1 = lucy tewii:size=9;1
+font-2 = lucy tewii:size=9;1
+font-3 = lucy tewii:size=9;1
 
-modules-left = date i3
-modules-center = cmus
-modules-right = volume disk menu0 
+modules-left = i3
+modules-center = date
+modules-right = cmus volume disk menu0 
 
 ;tray-position = right
 tray-padding = 0
@@ -118,7 +117,8 @@ exec = /usr/lib/i3blocks/weather
 [module/disk]
 type = custom/script
 interval = 5
-format-prefix = " "
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-icon}
 exec = /usr/lib/i3blocks/disk
 
 [module/cpuload]
@@ -130,8 +130,8 @@ exec = /usr/lib/i3blocks/load_average
 
 [module/cmus]
 type = custom/script
-format-prefix =   
-format-prefix-foreground = ${colors.foreground}
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-icon}
 interval = 1
 exec = /usr/lib/i3blocks/cmus
 
@@ -163,33 +163,35 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
-label-mode-foreground = #CC6666
+label-mode-padding = 3
+;label-mode-foreground = #CC6666
+label-mode-foreground = #C5C8C6
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-label-focused = 
-label-focused-foreground = #CC6666
+label-focused = %index%
+;label-focused-foreground = #CC6666
 label-focused-background = ${colors.background}
 ;label-focused-underline = #6C5F80
 ;label-focused-format-underline = #6C5F80
-label-focused-padding = 2
+label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = 
-;label-unfocused-foreground = #282A2D
-label-unfocused-padding = 2
+label-unfocused = %index%
+label-unfocused-foreground = #6D6D6D
+label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
-label-visible = 
+label-visible = %index%
+label-visible-foreground = #6D6D6D
 ;label-visible-background = ${self.label-focused-background}
 ;label-visible-background = ${colors.background}
 ;label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 2
+label-visible-padding = 3
 
 ; urgent = Workspace with urgency hint set
-label-urgent = 
-label-urgent-foreground = #9E986C
+label-urgent = %index%
+label-urgent-foreground = #CC6666
 ;label-urgent-background = #CA2C2C
 label-urgent-padding = 2
 
@@ -285,11 +287,12 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 1
-format-prefix = " " 
+format-prefix = "  " 
+format-prefix-foreground = ${colors.foreground-icon}
 ;format-prefix-foreground = ${colors.foreground-icon}
 
 #date =  %a, %d/%m, %H:%M
-date = %a %d %b, %H:%M
+date =  %a %d %b, %H:%M
 ;date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
@@ -302,11 +305,15 @@ label = %date%
 [module/volume]
 type = internal/volume
 format-volume = <label-volume>
-label-volume =  %percentage%%
+format-volume-prefix = "  "
+format-volume-prefix-foreground = ${colors.foreground-icon}
+label-volume = %percentage%%
 ;label-volume-foreground = ${root.foreground}
 ;label-volume = %percentage%%
 
-label-muted =  mute
+format-muted-prefix = "  "
+format-muted-prefix-foreground = ${colors.foreground-icon}
+label-muted = mute
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
