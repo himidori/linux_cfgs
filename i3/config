@@ -43,6 +43,8 @@ bindsym $mod+Shift+q kill
 
 bindsym $mod+Shift+x exec ~/Dev/lock.sh
 
+bindsym $mod+o open
+
 set $dmenu_col "#ee829f"
 set $dmenu_bg "#000"
 # start dmenu (a program launcher)
@@ -331,7 +333,7 @@ bindsym $mod+Shift+z gaps outer current minus 5
 bindsym $mod+Shift+t gaps inner all set 16; gaps outer all set 10
 
 exec dunst
-#exec_always ~/.config/polybar/launch.sh
+exec_always ~/.config/polybar/launch.sh
 #keyboard
 #exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
 exec --no-startup-id setxkbmap us,ru -option 'caps:escape'
@@ -343,7 +345,7 @@ exec telegram-desktop
 exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
 #exec_always setxkbmap -option caps:escape
 #exec setxkbmap -layout us,ru -option caps:escape
-#exec feh --bg-scale ~/.config/wallpaper.png
+exec feh --bg-scale ~/.config/wallpaper.png
 #exec discord
 #exec_always feh --bg-scale ~/Pictures/wallpapers/1.jpg
 #exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
