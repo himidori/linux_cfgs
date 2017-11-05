@@ -17,18 +17,31 @@ background-alt = ${xrdb:color7:#222}
 ;foreground = ${xrdb:color7:#222}
 ;foreground = ${xrdb:color6:#222}
 ;foreground = #E5E5E5
-foreground = #C5C8C6
+;foreground = #C5C8C6
+foreground = #B8BABA
 foreground-alt = #555
-foreground-icon = #CC6666
+foreground-icon = #B8BABA
+i3-background = #CC6666
 ;primary = #0088cc
 primary = #8874E6
 secondary = #e60053
 alert = #bd2c40
 
+[sizes]
+bar-width = 1700
+bar-height = 35
+
+bar-offset-x = 200
+bar-top-gap = 6
+bar-bottom-gap = 15
+
 [bar/example]
 monitor = ${env:MONITOR}
-width = 100%
-height = 25
+bottom = true
+;width = 100%
+;height = 25
+width = ${sizes.bar-width}
+height = ${sizes.bar-height}
 ;offset-x = 14%
 ;offset-y = 2%
 ;radius = 3.0
@@ -42,8 +55,12 @@ line-color = #ffffff
 
 ;border-size = 20
 border-color = #00000000
+border-left-size = ${sizes.bar-offset-x}
+border-left-color = #00000000
+;border-top-size = ${sizes.bar-top-gap}
+border-bottom-size = ${sizes.bar-bottom-gap}
 
-padding-left = 3
+padding-left = 0
 padding-right = 3
 
 module-margin-left = 2
@@ -52,14 +69,14 @@ module-margin-right = 2
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=9;1
-font-1 = lucy tewii:size=9;1
-font-2 = lucy tewii:size=9;1
-font-3 = lucy tewii:size=9;1
+font-0 = FontAwesome:size=10;1
+font-1 = Noto Sans:size=9;1
+font-2 = Noto Sans:size=9;1
+font-3 = Noto Sans:size=9;1
 
 modules-left = i3
-modules-center = date
-modules-right = cmus volume disk menu0 
+modules-center = cmus
+modules-right = volume disk date menu0 
 
 ;tray-position = right
 tray-padding = 0
@@ -163,35 +180,35 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 3
+label-mode-padding = 4
 ;label-mode-foreground = #CC6666
 label-mode-foreground = #C5C8C6
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-;label-focused-foreground = #CC6666
-label-focused-background = ${colors.background}
+label-focused-foreground = #000
+label-focused-background = ${colors.i3-background}
 ;label-focused-underline = #6C5F80
 ;label-focused-format-underline = #6C5F80
-label-focused-padding = 3
+label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-foreground = #6D6D6D
-label-unfocused-padding = 3
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-padding = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-foreground = #6D6D6D
+label-visible-foreground = ${colors.foreground}
 ;label-visible-background = ${self.label-focused-background}
 ;label-visible-background = ${colors.background}
 ;label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 3
+label-visible-padding = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-foreground = #CC6666
+label-urgent-foreground = ${colors.foreground}
 ;label-urgent-background = #CA2C2C
 label-urgent-padding = 2
 
@@ -291,8 +308,9 @@ format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-icon}
 ;format-prefix-foreground = ${colors.foreground-icon}
 
-#date =  %a, %d/%m, %H:%M
-date =  %a %d %b, %H:%M
+;date =  %a, %d/%m, %H:%M
+;date = %a %d %b, %H:%M
+date = %H:%M
 ;date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
