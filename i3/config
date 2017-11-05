@@ -15,7 +15,7 @@ set $mod Mod4
 #font pango:monospace 8
 #font pango:Ubuntu Bold 10
 #font pango:lucy tewi 9
-font pango:CtrlD 13
+font pango:CtrlD 15
 #font pango:Dejavu Sans:size=20
 #font pango:Misc Tamsyn 9
 #font pango:xos4 Terminus 9
@@ -200,6 +200,9 @@ for_window [class="Pavucontrol"] floating enable
 #for_window [class="TelegramDesktop"] floating enable
 #for_window [class="TelegramDesktop"] resize set 350 900
 #for_window [class="TelegramDesktop"] move position left
+#
+for_window [class="feh"] resize set 740 780
+for_window [class="feh"] move position center
 
 
 # reload the configuration file
@@ -271,8 +274,9 @@ set $text-color2 #f3f4f5
 set $inactive-text2 #676e7d
 set $urgent-bg2 #e53935
 set_from_resource $fg i3wm.color0 #6C5F80
-#set_from_resource $bg i3wm.color2 #6C5F80
-set $bg #CC6666
+set_from_resource $fg2 i3wm.color14 #6C5F80
+set_from_resource $bg i3wm.color2 #6C5F80
+#set $bg #CC6666
 #oldborder = E91E63
 
 #window colors
@@ -283,8 +287,8 @@ set $bg #CC6666
 #client.urgent          $urgent-bg-color    $urgent-bg-color    $inactive-text-color    #000
 
 client.focused          $bg             $bg             $fg         $bg
-client.unfocused        #000            #000                $fg         $bg
-client.focused_inactive #000            #000                $fg         $bg
+client.unfocused        $fg             $fg             #4E4E4E     #4E4E4E
+client.focused_inactive $fg             $fg             #4E4E4E     #4E4E4E
 client.urgent           $bg             $bg             $fg         $bg
 
 #bar {
@@ -314,10 +318,10 @@ client.urgent           $bg             $bg             $fg         $bg
 
 
 #i3 gaps
-for_window [class="^.*"] border pixel 2
+#for_window [class="^.*"] border pixel 2
 #### window titles ####
-#for_window [class=".*"] title_format "<span font='Misc Termsyn 8'> %title</span>" 
-#for_window [class="^.*"] border normal 0
+for_window [class=".*"] title_format "<span font='Misc Termsyn 10'> > %title</span>" 
+for_window [class="^.*"] border normal 0
 #######################
 gaps inner 16
 gaps outer 10
@@ -337,7 +341,7 @@ exec_always ~/.config/polybar/launch.sh
 #keyboard
 #exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
 exec --no-startup-id setxkbmap us,ru -option 'caps:escape'
-#exec walset ~/.cache/wal/wal
+exec walset ~/.cache/wal/wal
 exec chromium
 exec telegram-desktop
 #exec compton --config ~/.compton
@@ -345,17 +349,17 @@ exec telegram-desktop
 exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
 #exec_always setxkbmap -option caps:escape
 #exec setxkbmap -layout us,ru -option caps:escape
-exec feh --bg-scale ~/.config/wallpaper.png
+#exec feh --bg-scale ~/.config/wallpaper.png
 #exec discord
 #exec_always feh --bg-scale ~/Pictures/wallpapers/1.jpg
 #exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
 #exec_always feh --bg-scale ~/Pictures/wallpapers/space.png
 exec_always xset m 0 0
 #exec ~/notify.sh
-exec_always --no-startup-id python ~/Dev/python/dunst-fs-block.py
+#exec_always --no-startup-id python ~/Dev/python/dunst-fs-block.py
 #exec --no-startup-id wal -i "${HOME}/.cache/wal/wal"
 #exec nvidia-settings --assign CurrentMetaMode="DVI-I-0:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }" #exec xinput -map-to-output "Wacom Bamboo Connect Pen Pen (0)" DVI-D-0
 #exec shutter
 #exec palemoon
 #exec xrdb -merge ~/.Xresources
-#exec_always ~/walstartup 
+exec_always ~/walstartup 
