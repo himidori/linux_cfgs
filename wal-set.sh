@@ -7,26 +7,27 @@
 source "${HOME}/.cache/wal/colors.sh"
 
 reload_dunst() {
-    pkill dunst && \
+    pkill dunst && \ 
         dunst \
-            -lb "$color0" \
-            -nb "$color0" \
-            -cb "$color0" \
-            -lf "$color15" \
-            -bf "$color15" \
-            -cf "$color15" \
-            -nf "$color15" \
-            -fn "${DUNST_FONT:-Misc Termsyn 10}" \
-            -geometry "${DUNST_SIZES:-300x30-40+70}" &
+        -lb "$color0" \
+        -nb "$color0" \
+        -cb "$color0" \
+        -lf "$color15" \
+        -bf "$color15" \
+        -cf "$color15" \
+        -nf "$color15" \
+        -fn "${DUNST_FONT:-Source Code Pro 10}" \
+        -geometry "${DUNST_SIZES:-0x30-20+45}" \
+        -shrink "false" &
 }
 
 reload_bar(){
-    sh /home/yuimaestro/.config/polybar/launch.sh
+    /home/yuimaestro/.config/polybar/launch.sh 2>/dev/null &
 }
 
 main() {
     reload_dunst &
-    reload_bar
+    reload_bar &
     # pgrep i3 && i3-msg reload &
 }
 
