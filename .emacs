@@ -3,7 +3,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;(load-theme 'wombat)
+;(load-theme 'xresources-theme)
 
 (require 'package) ;; You might already have this line
 
@@ -17,6 +17,8 @@
 
 
 (package-initialize)
+
+(load-theme 'xresources t)
 
 (defun my-package-list-packages ()
   "Enable evil-mode after 'packages-list-packages'."
@@ -68,24 +70,77 @@
 
 ;; Writeroom
 (setq writeroom-fullscreen-effect 'maximized)
-(global-set-key (kbd "C-x C-n") #'writeroom-mode)
-(global-set-key (kbd "C-x C-m") #'visual-line-mode)
+;;(global-set-key (kbd "C-x C-n") #'writeroom-mode)
+;;(global-set-key (kbd "C-x C-m") #'visual-line-mode)
 
-;; Auto-complete
-;;(ac-config-default)
+;; diminish
+(use-package diminish
+             :init
+             :config
+             (diminish 'helm-mode)
+             (diminish 'auto-complete-mode)
+             (diminish 'global-auto-complete-mode)
+             (diminish 'undo-tree-mode)
+             (diminish 'abbrev-mode)
+             (diminish 'ac-mode-map))
+
+;; Completely hide visual-line-mode and change auto-fill-mode to " AF".
+(use-package emacs
+  :delight
+  (auto-fill-function " AF")
+  (visual-line-mode))
+
+ ;;Auto-complete
+(ac-config-default)
 (defun ac-init()
     (require 'auto-complete-config)
     (ac-config-default)
     (setq ac-auto-start 1)
     (setq ac-auto-show-menu t)
-    (setq ac-delay 0.2)
+    (setq ac-delay 0)
     (setq ac-show-menu-immediately-on-auto-complete t)
     (global-auto-complete-mode t)
     (add-to-list 'ac-modes 'lisp-mode)
     (add-to-list 'ac-sources 'ac-source-variables)
     (add-to-list 'ac-sources 'ac-source-functions)
-    (add-to-list 'ac-sources 'ac-source-dictionary))
+    (add-to-list 'ac-sources 'ac-source-dictionary)
+    (add-to-list 'ac-modes 'web-mode)
+   ;;(add-to-list 'ac-sources 'ac-source-filename))
+   (add-hook 'go-mode-hook 'auto-complete-for-go))
 (ac-init)
+
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+;(when window-system (set-exec-path-from-shell-PATH))
+(set-exec-path-from-shell-PATH)
+
+
+(setenv "GOPATH" "/home/yuimaestro/.local/go")
+
+(require 'go-mode)
+(require 'go-autocomplete)
+(defun auto-complete-for-go ()
+    (auto-complete-mode 1))
+;(add-hook 'go-mode-hook 'auto-complete-for-go)
+
+(defun my-go-mode-hook ()
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (global-set-key (kbd "M-.") 'godef-jump)
+  (if (not (string-match "go" compile-command))
+    (set (make-local-variable 'compile-command)
+                        "go build -v && go run -v")))
+(my-go-mode-hook)
+
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
 
 ;; Line numbers
 (require 'linum)
@@ -93,6 +148,10 @@
 (global-nlinum-mode t)
 (column-number-mode t)
 (setq linum-format " %d")
+
+;; Disable autosaving
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Powerline
 (require 'powerline)
@@ -114,8 +173,8 @@
 (setq next-line-add-newlines nil)
 
 ;; Display file size in mode-line
-(setq display-time-24hr-format t)
-(display-time-mode             t)
+;;(setq display-time-24hr-format t)
+;;(display-time-mode               t)
 (size-indication-mode          t)
 
 ;; Neotree
@@ -129,7 +188,7 @@
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
-(latex-preview-pane-enable)
+;;(latex-preview-pane-enable)
 
 ;; rainbow braces
 (require 'rainbow-delimiters)
@@ -142,6 +201,48 @@
 ;; stuff for commenting
 (evil-commentary-mode)
 
+;; git
+(global-set-key (kbd "C-x g") 'magit-status)
+(require 'evil-magit)
+
+;; Yasnippet
+;;(require 'yasnippet)
+;;(yas/global-mode 1)
+
+;; Neotree evil-mode keybindings
+(add-hook 'neotree-mode-hook
+    (lambda ()
+    (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+    (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+    (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+    (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
+;; web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (local-set-key (kbd "RET") 'newline-and-indent)
+  (setq web-mode-extra-snippets '(("erb" . (("name" . ("beg" . "end"))))
+                                ))
+  (setq web-mode-extra-auto-pairs '(("erb" . (("open" "close")))
+                                  ))
+  (setq web-mode-enable-current-element-highlight t)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -151,15 +252,15 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#eaeaea" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#424242"))
- '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
    (quote
-    ("82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(fci-rule-color "#424242")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(nil nil t)
  '(package-selected-packages
    (quote
-    (hamburger-menu yoshi-theme tao-theme evil-commentary rainbow-delimiters pdf-tools latex-preview-pane ample-theme jedi neotree jabber powerline-evil powerline color-theme-sanityinc-tomorrow writeroom-mode simpleclip helm smex evil auto-complete dired+)))
+    (company-go xresources-theme web-mode evil-magit magit ac-c-headers use-package exec-path-from-shell go-complete go-mode hamburger-menu yoshi-theme tao-theme evil-commentary rainbow-delimiters pdf-tools latex-preview-pane ample-theme jedi neotree jabber powerline-evil powerline color-theme-sanityinc-tomorrow writeroom-mode simpleclip helm smex evil auto-complete dired+)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
