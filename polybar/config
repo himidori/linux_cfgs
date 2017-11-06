@@ -8,20 +8,18 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-;background = ${xrdb:color0:#222}
-;background = #121212
-background = #1C1E21
+background = #101110
+;background = #1C1E21
 #background-alt = #444
 background-alt = ${xrdb:color7:#222}
 ;foreground = ${xrdb:color7:#222}
-;foreground = ${xrdb:color6:#222}
-;foreground = #E5E5E5
-;foreground = #C5C8C6
-foreground = #B8BABA
-foreground-alt = #555
-foreground-icon = #B8BABA
-i3-background = #CC6666
+foreground = #AFAFAF
+;foreground = #B8BABA
+;foreground-alt = #555
+;foreground-icon = #B8BABA
+foreground-icon = #AFAFAF
+;i3-background = #CC6666
+i3-background = #665059
 ;primary = #0088cc
 primary = #8874E6
 secondary = #e60053
@@ -44,7 +42,7 @@ width = ${sizes.bar-width}
 height = ${sizes.bar-height}
 ;offset-x = 14%
 ;offset-y = 2%
-;radius = 3.0
+radius = 4.0
 fixed-center = true
 
 background = ${colors.background}
@@ -69,10 +67,10 @@ module-margin-right = 2
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=10;1
-font-1 = Noto Sans:size=9;1
-font-2 = Noto Sans:size=9;1
-font-3 = Noto Sans:size=9;1
+font-0 = FontAwesome:size=9;1
+font-1 = lucy tewii:size=9;1
+font-2 = lucy tewii:size=9;1
+font-3 = lucy tewii:size=9;1
 
 modules-left = i3
 modules-center = cmus
@@ -310,7 +308,7 @@ format-prefix-foreground = ${colors.foreground-icon}
 
 ;date =  %a, %d/%m, %H:%M
 ;date = %a %d %b, %H:%M
-date = %H:%M
+date = %b %d, %H:%M
 ;date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
