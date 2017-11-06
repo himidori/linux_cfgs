@@ -15,7 +15,7 @@ set $mod Mod4
 #font pango:monospace 8
 #font pango:Ubuntu Bold 10
 #font pango:lucy tewi 9
-font pango:CtrlD 15
+font pango:CtrlD 10
 #font pango:Dejavu Sans:size=20
 #font pango:Misc Tamsyn 9
 #font pango:xos4 Terminus 9
@@ -44,6 +44,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+x exec ~/Dev/lock.sh
 
 bindsym $mod+o open
+bindsym $mod+c exec "emacs --debug-init"
 
 set $dmenu_col "#ee829f"
 set $dmenu_bg "#000"
@@ -192,6 +193,7 @@ for_window [class="Gimp"] floating enable
 for_window [class="Anki"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="Sxiv"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
@@ -204,6 +206,8 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="feh"] resize set 740 780
 for_window [class="feh"] move position center
 
+for_window [class="Sxiv"] resize set 740 780
+for_window [class="Sxiv"] move position center
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -273,9 +277,9 @@ set $inactive-bg2 #2f343f
 set $text-color2 #f3f4f5
 set $inactive-text2 #676e7d
 set $urgent-bg2 #e53935
-set_from_resource $fg i3wm.color0 #6C5F80
-set_from_resource $fg2 i3wm.color14 #6C5F80
-set_from_resource $bg i3wm.color2 #6C5F80
+set_from_resource $fg i3wm.color0 #101110
+set_from_resource $fg2 i3wm.color1 #6C5F80
+set_from_resource $bg i3wm.color2 #665059
 #set $bg #CC6666
 #oldborder = E91E63
 
@@ -320,7 +324,7 @@ client.urgent           $bg             $bg             $fg         $bg
 #i3 gaps
 #for_window [class="^.*"] border pixel 2
 #### window titles ####
-for_window [class=".*"] title_format "<span font='Misc Termsyn 10'> > %title</span>" 
+for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
 for_window [class="^.*"] border normal 0
 #######################
 gaps inner 16
@@ -336,12 +340,12 @@ bindsym $mod+Shift+z gaps outer current minus 5
 #bindsym $mod+Shift+t gaps inner all set 10; gaps outer all set 4
 bindsym $mod+Shift+t gaps inner all set 16; gaps outer all set 10
 
-exec dunst
+#exec dunst
 exec_always ~/.config/polybar/launch.sh
 #keyboard
 #exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
 exec --no-startup-id setxkbmap us,ru -option 'caps:escape'
-exec walset ~/.cache/wal/wal
+#exec walset ~/.cache/wal/wal
 exec chromium
 exec telegram-desktop
 #exec compton --config ~/.compton
@@ -349,7 +353,7 @@ exec telegram-desktop
 exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
 #exec_always setxkbmap -option caps:escape
 #exec setxkbmap -layout us,ru -option caps:escape
-#exec feh --bg-scale ~/.config/wallpaper.png
+exec feh --bg-scale ~/.config/wallpaper.png
 #exec discord
 #exec_always feh --bg-scale ~/Pictures/wallpapers/1.jpg
 #exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
@@ -361,5 +365,5 @@ exec_always xset m 0 0
 #exec nvidia-settings --assign CurrentMetaMode="DVI-I-0:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }" #exec xinput -map-to-output "Wacom Bamboo Connect Pen Pen (0)" DVI-D-0
 #exec shutter
 #exec palemoon
-#exec xrdb -merge ~/.Xresources
-exec_always ~/walstartup 
+exec xrdb -merge ~/.Xresources
+#exec_always ~/walstartup 
