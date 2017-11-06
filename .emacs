@@ -292,6 +292,7 @@
  '(default ((t (:foreground  "#afafaf" :background "#101110" ))))
  '(linum ((t (:foreground  "#595e66" :background "#101110" ))))
  '(mode-line ((t (:foreground "#bdc3ce" :background "#202020" ))))
+ '(mode-line-inactive ((t (:foreground "#6c7179" :background "#101110" ))))
  '(cursor ((t (:background "#665059" ))))
  '(fringe ((t (:background "#101110" ))))
  '(helm-header ((t (:foreground  "#bdc3ce"
@@ -310,5 +311,4 @@
                           ))))
  '(helm-selection ((t (:background "#3c4449" :underline nil))))
  '(helm-selection-line ((t (:background "#101110"))))
-
  )
