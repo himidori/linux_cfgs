@@ -18,7 +18,11 @@
 
 (package-initialize)
 
-(load-theme 'xresources t)
+(load-theme 'arjen-grey t)
+;(set-background-color "#000000")
+
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 11"))
+(set-face-attribute 'default t :font "Source Code Pro 11")
 
 (defun my-package-list-packages ()
   "Enable evil-mode after 'packages-list-packages'."
@@ -47,7 +51,7 @@
 (setq scroll-margin            10)
 (setq scroll-conservatively 10000)
 
-(setq powerline-default-separator 'slant)
+;(setq powerline-default-separator 'slant)
 
 ;;(add-to-list 'load-path "~/.emacs.d/evil")
 (setq
@@ -91,7 +95,6 @@
   (visual-line-mode))
 
  ;;Auto-complete
-(ac-config-default)
 (defun ac-init()
     (require 'auto-complete-config)
     (ac-config-default)
@@ -105,8 +108,8 @@
     (add-to-list 'ac-sources 'ac-source-functions)
     (add-to-list 'ac-sources 'ac-source-dictionary)
     (add-to-list 'ac-modes 'web-mode)
-   ;;(add-to-list 'ac-sources 'ac-source-filename))
-   (add-hook 'go-mode-hook 'auto-complete-for-go))
+   ;(add-to-list 'ac-sources 'ac-source-filename))
+    (add-hook 'go-mode-hook 'auto-complete-for-go))
 (ac-init)
 
 (defun set-exec-path-from-shell-PATH ()
@@ -154,8 +157,8 @@
 (setq auto-save-default nil)
 
 ;; Powerline
-(require 'powerline)
-(powerline-default-theme)
+;(require 'powerline)
+;(powerline-default-theme)
 
 ;; Indent settings
 (setq-default indent-tabs-mode nil)
@@ -250,17 +253,15 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#eaeaea" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#424242"))
  '(custom-safe-themes
    (quote
-    ("065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("83db918b06f0b1df1153f21c0d47250556c7ffb5b5e6906d21749f41737babb7" "604648621aebec024d47c352b8e3411e63bdb384367c3dd2e8db39df81b475f5" "b8929cff63ffc759e436b0f0575d15a8ad7658932f4b2c99415f3dde09b32e97" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" "dd4628d6c2d1f84ad7908c859797b24cc6239dfe7d71b3363ccdd2b88963f336" "a1a966cf2e87be6a148158c79863440ba2e45aa06cc214341feafe5c6deca4f2" "065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(fci-rule-color "#424242")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(nil nil t)
  '(package-selected-packages
    (quote
-    (company-go xresources-theme web-mode evil-magit magit ac-c-headers use-package exec-path-from-shell go-complete go-mode hamburger-menu yoshi-theme tao-theme evil-commentary rainbow-delimiters pdf-tools latex-preview-pane ample-theme jedi neotree jabber powerline-evil powerline color-theme-sanityinc-tomorrow writeroom-mode simpleclip helm smex evil auto-complete dired+)))
+    (arjen-grey-theme badwolf-theme base16-theme darktooth-theme company-go xresources-theme web-mode evil-magit magit ac-c-headers use-package exec-path-from-shell go-complete go-mode hamburger-menu yoshi-theme tao-theme evil-commentary rainbow-delimiters pdf-tools latex-preview-pane ample-theme jedi neotree jabber powerline-evil powerline color-theme-sanityinc-tomorrow writeroom-mode simpleclip helm smex evil auto-complete dired+)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -288,4 +289,26 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground  "#afafaf" :background "#101110" ))))
+ '(linum ((t (:foreground  "#595e66" :background "#101110" ))))
+ '(mode-line ((t (:foreground "#bdc3ce" :background "#202020" ))))
+ '(cursor ((t (:background "#665059" ))))
+ '(fringe ((t (:background "#101110" ))))
+ '(helm-header ((t (:foreground  "#bdc3ce"
+                    :background "#101110"
+                    :underline nil
+                    :box nil))))
+ '(helm-source-header ((t (:foreground  "#bdc3ce"
+                           :background "#101110"
+                           :underline nil
+                           :weight bold
+                           :box (:line-width -1 :style released-button)))))
+ '(helm-ff-directory ((t (:foreground  "#bdc3ce"
+                          :background "#101110"
+                          :underline nil
+                          :weight bold
+                          ))))
+ '(helm-selection ((t (:background "#3c4449" :underline nil))))
+ '(helm-selection-line ((t (:background "#101110"))))
+
  )
