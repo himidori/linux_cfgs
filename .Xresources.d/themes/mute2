@@ -1,0 +1,47 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #665059
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #C0C5CE
+URxvt.internalBorder: 15
+
+!black
+URxvt*color0: #101110
+URxvt*color8: #6C7179
+
+!red
+!URxvt*color1: #665059
+!URxvt*color9: #744B5A
+URxvt*color1: #653D4E
+URxvt*color9: #7A4A5F
+
+!green
+URxvt*color2: #58625A
+URxvt*color10: #58625A
+
+!yellow
+URxvt*color3: #7F4D4F
+URxvt*color11: #7F4D4F
+
+!blue
+URxvt*color4: #6C7179
+URxvt*color12: #7E838C
+
+!magenta
+!URxvt*color5: #7C6688
+!URxvt*color13: #7C6688
+URxvt*color5: #6E5C79
+URxvt*color13: #6E5C79
+
+!cyan
+URxvt*color6: #5C7176
+URxvt*color14: #67878C
+
+!white
+URxvt*color7: #7C8B8E
+URxvt*color15: #7C8B8E
+
+#define termbg #101110
+#define termfg #AFAFAF
+
+#include "../rofi/mute.rofi"
