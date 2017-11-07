@@ -27,7 +27,7 @@ alert = #bd2c40
 
 [sizes]
 bar-width = 1700
-bar-height = 35
+bar-height = 32
 
 bar-offset-x = 200
 bar-top-gap = 6
@@ -35,14 +35,14 @@ bar-bottom-gap = 15
 
 [bar/example]
 monitor = ${env:MONITOR}
-bottom = true
-;width = 100%
-;height = 25
-width = ${sizes.bar-width}
-height = ${sizes.bar-height}
+;bottom = true
+width = 100%
+height = 35
+;width = ${sizes.bar-width}
+;height = ${sizes.bar-height}
 ;offset-x = 14%
 ;offset-y = 2%
-radius = 4.0
+;radius = 4.0
 fixed-center = true
 
 background = ${colors.background}
@@ -53,10 +53,10 @@ line-color = #ffffff
 
 ;border-size = 20
 border-color = #00000000
-border-left-size = ${sizes.bar-offset-x}
-border-left-color = #00000000
+;border-left-size = ${sizes.bar-offset-x}
+;border-left-color = #00000000
 ;border-top-size = ${sizes.bar-top-gap}
-border-bottom-size = ${sizes.bar-bottom-gap}
+;border-bottom-size = ${sizes.bar-bottom-gap}
 
 padding-left = 0
 padding-right = 3
