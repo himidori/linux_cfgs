@@ -85,7 +85,7 @@
     #geometry = "300x10-20+45"
 
     #notification_height = 30
-    geometry = "0x30-20+45"
+    geometry = "250-20+45"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -171,8 +171,8 @@
     #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 0
-    color = "#1C1E21"
+    width = 1
+    color = "#AFAFAF"
 
 [shortcuts]
 
@@ -200,17 +200,17 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#1d2021"
     #background = "#231F20"
-    background = "#1C1E21"
+    background = "#141414"
     foreground = "#B8BABA"
     timeout = 10
 
 [urgency_normal]
-    background = "#1C1E21"
+    background = "#141414"
     foreground = "#B8BABA"
     timeout = 10
 
 [urgency_critical]
-    background = "#1C1E21"
+    background = "#141414"
     foreground = "#B8BABA"
     timeout = 0
 
