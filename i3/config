@@ -279,7 +279,7 @@ set $inactive-text2 #676e7d
 set $urgent-bg2 #e53935
 set_from_resource $fg i3wm.color0 #101110
 set_from_resource $fg2 i3wm.color1 #6C5F80
-set_from_resource $bg i3wm.color2 #665059
+set_from_resource $bg i3wm.color2 #AFAFAF
 #set $bg #CC6666
 #oldborder = E91E63
 
@@ -322,10 +322,10 @@ client.urgent           $bg             $bg             $fg         $bg
 
 
 #i3 gaps
-#for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 #### window titles ####
-for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
-for_window [class="^.*"] border normal 0
+#for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
+#for_window [class="^.*"] border normal 0
 #######################
 gaps inner 16
 gaps outer 10
@@ -350,7 +350,8 @@ exec chromium
 exec telegram-desktop
 #exec compton --config ~/.compton
 #exec xcompmgr -f
-exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
+#exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
+exec compton --config ~/.config/compton.conf -b 
 #exec_always setxkbmap -option caps:escape
 #exec setxkbmap -layout us,ru -option caps:escape
 exec feh --bg-scale ~/.config/wallpaper.png
