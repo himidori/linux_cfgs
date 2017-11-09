@@ -63,13 +63,13 @@ border-bottom-size = ${sizes.bar-bottom-gap}
 padding-left = 0
 padding-right = 3
 
-module-margin-left = 2
-module-margin-right = 2
+;module-margin-left = 2
+module-margin-right = 6
 ;font-0 = liberation:pixelsize=10;1
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=10;0
+font-0 = FontAwesome:size=11;0
 font-1 = NotoSans-Regular:size=9;0
 font-2 = Kochi Gothic:size=11;0
 
@@ -133,7 +133,8 @@ exec = /usr/lib/i3blocks/weather
 [module/disk]
 type = custom/script
 interval = 5
-format-prefix = "  "
+;format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-icon}
 exec = /usr/lib/i3blocks/disk
 
