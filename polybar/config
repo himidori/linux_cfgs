@@ -13,10 +13,11 @@ background = #1C1E21
 #background-alt = #444
 background-alt = ${xrdb:color7:#222}
 ;foreground = ${xrdb:color7:#222} foreground = #AFAFAF
-foreground = #B8BABA
+;foreground = #B8BABA
+foreground = #BDBDBD
 ;foreground-alt = #555
 ;foreground-icon = #B8BABA
-foreground-icon = #AFAFAF
+foreground-icon = #BDBDBD
 ;i3-background = #CC6666
 i3-background = #444444
 underline = #B894B0
@@ -68,8 +69,8 @@ module-margin-right = 2
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=9;0
-font-1 = Ubuntu:size=10;0
+font-0 = FontAwesome:size=10;0
+font-1 = NotoSans-Regular:size=9;0
 font-2 = Kochi Gothic:size=11;0
 
 modules-left = i3
