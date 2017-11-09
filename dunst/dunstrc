@@ -86,7 +86,7 @@
     #geometry = "300x10-20+45"
 
     #notification_height = 30
-    geometry = "250-20+45"
+    geometry = "300x30-20+45"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -173,7 +173,7 @@
 
 [frame]
     width = 1
-    color = "#AFAFAF"
+    color = "#B894B0"
 
 [shortcuts]
 
@@ -201,17 +201,17 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#1d2021"
     #background = "#231F20"
-    background = "#141414"
+    background = "#1C1E21"
     foreground = "#AFAFAF"
     timeout = 5
 
 [urgency_normal]
-    background = "#141414"
+    background = "#1C1E21"
     foreground = "#AFAFAF"
     timeout = 5
 
 [urgency_critical]
-    background = "#141414"
+    background = "#1C1E21"
     foreground = "#AFAFAF"
     timeout = 0
 
@@ -234,21 +234,6 @@
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
-
-
-[discord]
-    appname = Discord
-    background = "#121212"
-    summary = "New message"
-    format = "<b>%s</b>\n%b"
-    timeout = 10
-
-[imgur]
-    appname = ImgurScreenshot
-    background = "#121212"
-    summary = "Screenshot uploaded"
-    format = "<b>%s</b>\n%b"
-    timeout = 10
 
 #[espeak]
 #    summary = "*"

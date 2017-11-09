@@ -30,13 +30,13 @@ alert = #bd2c40
 bar-width = 1700
 bar-height = 35
 
-bar-offset-x = 205
+bar-offset-x = 200
 bar-top-gap = 6
 bar-bottom-gap = 15
 
 [bar/example]
 monitor = ${env:MONITOR}
-;bottom = true
+bottom = true
 ;width = 100%
 ;height = 30
 width = ${sizes.bar-width}
@@ -56,8 +56,8 @@ line-color = #ffffff
 border-color = #00000000
 border-left-size = ${sizes.bar-offset-x}
 border-left-color = #00000000
-border-top-size = ${sizes.bar-top-gap}
-;border-bottom-size = ${sizes.bar-bottom-gap}
+;border-top-size = ${sizes.bar-top-gap}
+border-bottom-size = ${sizes.bar-bottom-gap}
 
 padding-left = 0
 padding-right = 3
@@ -69,9 +69,8 @@ module-margin-right = 2
 ;font-2 = awesome:pixelsize=10;1
 
 font-0 = FontAwesome:size=9;0
-font-1 = lucy tewii:size=9;0
-font-2 = lucy tewii:size=9;0
-font-3 = lucy tewii:size=9;0
+font-1 = Ubuntu:size=10;0
+font-2 = Kochi Gothic:size=11;0
 
 modules-left = i3
 modules-center = cmus
