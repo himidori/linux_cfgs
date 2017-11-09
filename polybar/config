@@ -8,18 +8,18 @@
 ;=====================================================
 
 [colors]
-background = #101110
+background = #1C1E21
 ;background = #1C1E21
 #background-alt = #444
 background-alt = ${xrdb:color7:#222}
-;foreground = ${xrdb:color7:#222}
-foreground = #AFAFAF
-;foreground = #B8BABA
+;foreground = ${xrdb:color7:#222} foreground = #AFAFAF
+foreground = #B8BABA
 ;foreground-alt = #555
 ;foreground-icon = #B8BABA
 foreground-icon = #AFAFAF
 ;i3-background = #CC6666
-i3-background = #141414
+i3-background = #444444
+underline = #B894B0
 ;i3-background = #665059
 ;primary = #0088cc
 primary = #8874E6
@@ -30,20 +30,20 @@ alert = #bd2c40
 bar-width = 1700
 bar-height = 35
 
-bar-offset-x = 200
+bar-offset-x = 205
 bar-top-gap = 6
 bar-bottom-gap = 15
 
 [bar/example]
 monitor = ${env:MONITOR}
 ;bottom = true
-width = 100%
-height = 30
-;width = ${sizes.bar-width}
-;height = ${sizes.bar-height}
+;width = 100%
+;height = 30
+width = ${sizes.bar-width}
+height = ${sizes.bar-height}
 ;offset-x = 14%
 ;offset-y = 2%
-;radius = 4.0
+radius = 4.0
 fixed-center = true
 
 background = ${colors.background}
@@ -54,9 +54,9 @@ line-color = #ffffff
 
 ;border-size = 20
 border-color = #00000000
-;border-left-size = ${sizes.bar-offset-x}
-;border-left-color = #00000000
-;border-top-size = ${sizes.bar-top-gap}
+border-left-size = ${sizes.bar-offset-x}
+border-left-color = #00000000
+border-top-size = ${sizes.bar-top-gap}
 ;border-bottom-size = ${sizes.bar-bottom-gap}
 
 padding-left = 0
@@ -68,10 +68,10 @@ module-margin-right = 2
 ;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
 ;font-2 = awesome:pixelsize=10;1
 
-font-0 = FontAwesome:size=9;1
-font-1 = lucy tewii:size=9;1
-font-2 = lucy tewii:size=9;1
-font-3 = lucy tewii:size=9;1
+font-0 = FontAwesome:size=9;0
+font-1 = lucy tewii:size=9;0
+font-2 = lucy tewii:size=9;0
+font-3 = lucy tewii:size=9;0
 
 modules-left = i3
 modules-center = cmus
@@ -181,35 +181,35 @@ pin-workspaces = true
 
 label-mode-padding = 4
 ;label-mode-foreground = #CC6666
-label-mode-foreground = #C5C8C6
+;label-mode-foreground = #C5C8C6
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 ;label-focused-foreground = #000
 label-focused-background = ${colors.i3-background}
-;label-focused-underline = #6C5F80
+label-focused-underline = ${colors.underline}
 ;label-focused-format-underline = #6C5F80
 label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-foreground = #616161
+;label-unfocused-foreground = #616161
 label-unfocused-padding = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-foreground = ${colors.foreground}
+;label-visible-foreground = #616161
 ;label-visible-background = ${self.label-focused-background}
 ;label-visible-background = ${colors.background}
-;label-visible-underline = ${self.label-focused-underline}
+;label-visible-underline = ${colors.underline}
 label-visible-padding = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-foreground = #CA2C2C
+;label-urgent-foreground = #CA2C2C
 ;label-urgent-background = #CA2C2C
-label-urgent-padding = 2
+label-urgent-padding = 4
 
 [module/mpd]
 type = internal/mpd
