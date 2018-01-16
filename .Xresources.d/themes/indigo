@@ -1,0 +1,45 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #AFAFAF
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #262626 
+
+! black
+URxvt*color0:       #0F0F0F
+URxvt*color8:       #616161
+
+! red
+!URxvt*color1:      #892F37
+!URxvt*color9:      #892F37
+URxvt*color1:       #86373E
+URxvt*color9:       #86373E
+
+! green
+URxvt*color2:       #454E41
+URxvt*color10:      #454E41
+
+! yellow
+URxvt*color3:       #7A465C
+URxvt*color11:      #7A465C
+
+! blue
+URxvt*color4:       #7A8AA0
+URxvt*color12:      #7A8AA0
+
+! magenta
+URxvt*color5:       #494E85
+URxvt*color13:      #494E85
+
+! cyan
+URxvt*color6:       #828DA2
+URxvt*color14:      #828DA2
+
+! white
+URxvt*color7:       #AFAFAF
+URxvt*color15:      #AFAFAF
+
+!#define termbg #141414
+#define termbg #0F0F0F
+#define termfg #AFAFAF
+
+#include "../rofi/indigo.rofi"

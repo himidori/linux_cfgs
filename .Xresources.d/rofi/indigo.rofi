@@ -1,0 +1,27 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme - Colorful
+! ------------------------------------------------------------------------------
+
+rofi.font: Source Code Pro 10
+rofi.color-enabled: true
+!rofi.fullscreen: true
+rofi.show-match: false
+rofi.hide-scrollbar: true
+rofi.width: 470
+rofi.lines: 10
+
+! -color-window background, border color, separator color
+!
+rofi.color-window: #0F0F0F, #892F37, #0F0F0F 
+
+! -color-normal background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-normal: #0F0F0F, #B8BABA, #0F0F0F, #892F37, #000
+
+! -color-active background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-active: #892F37, #282A2D, #892F37, #892F37, #f7f7f7
+
+! -color-urgent background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
