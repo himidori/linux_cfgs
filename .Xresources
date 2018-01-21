@@ -1,5 +1,5 @@
 !include ".Xresources.d/themes/colorful"
-##include ".Xresources.d/themes/grayscale"
+!#include ".Xresources.d/themes/grayscale"
 !#include ".Xresources.d/themes/colorful2"
 !#include ".Xresources.d/themes/sakura"
 !#include ".Xresources.d/themes/colorful3"
@@ -11,14 +11,22 @@
 !#include ".Xresources.d/themes/sea"
 !#include ".Xresources.d/themes/colorful4"
 !#include ".Xresources.d/themes/emacs"
-#include ".Xresources.d/themes/colorful5"
+!#include ".Xresources.d/themes/colorful5"
+!#include ".Xresources.d/themes/mute"
+!#include ".Xresources.d/themes/mute2"
+!#include ".Xresources.d/themes/colorful6"
+!#include ".Xresources.d/themes/colorful7"
+!#include ".Xresources.d/themes/colorful8"
+!#include ".Xresources.d/themes/bridge"
+!#include ".Xresources.d/themes/colors"
+#include ".Xresources.d/themes/indigo"
 
 !-- Xft -- !
 Xft.dpi: 96
 Xft.antialias: true
 Xft.rgba: rgba
 Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 
 !ROFI
 !rofi.font: xos4 Terminus 13

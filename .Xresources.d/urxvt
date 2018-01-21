@@ -1,9 +1,9 @@
+!URxvt*depth: 32
 urxvt*background: termbg
 urxvt*foreground: termfg
-URxvt*depth: 32
 URxvt*internalBorder: 15
 !URxvt*background: rgba:0000/0000/0000/c800
-!URxvt*background: rgba:0000/0000/0000/2710
+!URxvt*background: rgba:0000/0000/0000/A600
 !URxvt.transparent: true
 !URxvt.shading: 10
 !URxvt.inheritPixmap: true
@@ -14,12 +14,13 @@ URxvt*internalBorder: 15
 !URxvt*font: xft:lucy tewi:size=9
 !URxvt*font: xft:Gohu GohuFont:size=14
 !URxvt*font: xft:CtrlD:size=10
-!URxvt*font: xft:Misc Termsyn:size=11
-URxvt*font: xft:Source Code Pro:size=10
-URxvt.letterspace: 1
+!URxvt*font: xft:Misc Termsyn:size=15
+!URxvt.font: xft:Source Code Pro:size=10,xft:Kochi Gothic:style=ja:size=20:antialias=false
+URxvt.font: xft:Iosevka:size=11,xft:Kochi Gothic:style=ja:size=20:antialias=false
+URxvt.letterspace: 0
 URxvt.perl-ext-common: default,clipboard
 urxvt*scrollBar: off
-URxvt.iso14755: true
+URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
