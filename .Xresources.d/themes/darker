@@ -1,0 +1,43 @@
+URxvt.scrollBar: false
+!URxvt*cursorColor: #86373E
+URxvt*cursorColor: #8B546F
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #262626 
+
+! black
+URxvt*color0:       #181818
+URxvt*color8:       #616161
+
+! red
+URxvt*color1:       #7D3A3C
+URxvt*color9:       #7D3A3C
+
+! green
+URxvt*color2:       #627350
+URxvt*color10:      #627350
+
+! yellow
+URxvt*color3:       #8B546F
+URxvt*color11:      #8B546F
+
+! blue
+URxvt*color4:       #4C6D8B
+URxvt*color12:      #4C6D8B
+
+! magenta
+URxvt*color5:       #6B4774
+URxvt*color13:      #6B4774
+
+! cyan
+URxvt*color6:       #34616B
+URxvt*color14:      #34616B
+
+! white
+URxvt*color7:       #AFAFAF
+URxvt*color15:      #AFAFAF
+
+#define termbg #181818
+#define termfg #AFAFAF
+
+#include "../rofi/darker.rofi"
