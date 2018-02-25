@@ -1,7 +1,7 @@
 ### GENERAL SETTINGS ###
 set $mod Mod4
 font pango:CtrlD 10
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 1
 
 #### WINDOW TITLE BARS ####
 #for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
@@ -33,6 +33,7 @@ bindsym $mod+Shift+x exec ~/Dev/lock.sh
 
 bindsym $mod+o open
 bindsym $mod+c exec "emacs"
+bindsym $mod+r exec "urxvt -e ranger"
 
 set $dmenu_col "#ee829f"
 set $dmenu_bg "#000"
@@ -149,7 +150,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 ### CUSTOM APP SETTINGS ###
 assign [class="TelegramDesktop"] $workspace2
-#assign [class="Firefox"] $workspace1
+assign [class="Firefox"] $workspace1
 assign [class="Chromium"] $workspace1
 #assign [class="Spotify"] $workspace4
 assign [class="Ghb"] $workspace5
@@ -174,6 +175,8 @@ for_window [class="feh"] move position center
 
 for_window [class="Sxiv"] resize set 740 780
 for_window [class="Sxiv"] move position center
+
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -212,7 +215,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 
 
 #bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 2300+ unmute"
@@ -243,7 +246,8 @@ set $inactive-text2 #676e7d
 set $urgent-bg2 #e53935
 set_from_resource $fg i3wm.color0 #141414
 set_from_resource $fg2 i3wm.color1 #ffffff
-set_from_resource $bg i3wm.color2 #B894B0
+#set_from_resource $bg i3wm.color2 #B894B0
+set_from_resource $bg i3wm.color2 #8B546F
 #set focused_bg #141414
 #set $bg #CC6666
 #oldborder = E91E63
@@ -262,6 +266,7 @@ exec_always ~/.config/polybar/launch.sh
 #exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
 exec --no-startup-id setxkbmap us,ru -option 'caps:escape'
 #exec walset ~/.cache/wal/wal
+#exec firefox
 exec chromium
 exec telegram-desktop
 #exec compton --config ~/.compton
@@ -282,5 +287,5 @@ exec_always xset m 0 0
 #exec nvidia-settings --assign CurrentMetaMode="DVI-I-0:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }" #exec xinput -map-to-output "Wacom Bamboo Connect Pen Pen (0)" DVI-D-0
 #exec shutter
 #exec palemoon
-exec xrdb -merge ~/.Xresources
+#exec xrdb -merge ~/.Xresources
 #exec_always ~/walstartup 

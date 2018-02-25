@@ -13,7 +13,7 @@
                                                  
                                                  
 [global]
-    font = Source Code Pro 10
+    font = Noto Sans 9
     #font = CtrlD 10
     #font = Misc Termsyn 11
     
@@ -41,6 +41,8 @@
     
     #format = "%s\n%b"
     format = "<b>%a</b>\n<b>%s</b>\n%b"
+
+    max_icon_size = 64
     
     # Sort messages by urgency.
     sort = yes
@@ -173,7 +175,7 @@
 
 [frame]
     width = 1
-    color = "#B894B0"
+    color = "#8B546F"
 
 [shortcuts]
 
@@ -201,17 +203,17 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#1d2021"
     #background = "#231F20"
-    background = "#1C1E21"
+    background = "#181818"
     foreground = "#AFAFAF"
     timeout = 5
 
 [urgency_normal]
-    background = "#1C1E21"
+    background = "#181818"
     foreground = "#AFAFAF"
     timeout = 5
 
 [urgency_critical]
-    background = "#1C1E21"
+    background = "181818"
     foreground = "#AFAFAF"
     timeout = 0
 
@@ -234,6 +236,10 @@
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
+
+[todo]
+    appname = todo
+    format = "<b>%s</b>\n%b"
 
 #[espeak]
 #    summary = "*"

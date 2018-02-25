@@ -78,6 +78,7 @@ autocmd! bufreadpost * set noexpandtab | retab! 4
 autocmd! bufwritepre * set expandtab | retab! 4
 autocmd! bufwritepost * set noexpandtab | retab! 4
 map <C-n> :NERDTreeToggle<CR>
+map <C-o> :NERDTreeClose<CR>
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']  
 "set number
 set autoindent
