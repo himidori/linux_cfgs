@@ -229,14 +229,12 @@
 (setq org-agenda-files (list "~/Documents/org/"))
 (setq org-default-notes-file "~/Documents/org/todo.org")
 (global-set-key (kbd "C-c o") (lambda () (interactive) (find-file "~/Documents/org/todo.org")))
-;(setq org-capture-templates
-;     '(("t" "todo" entry (file org-default-notes-file)
-;        "* TODO %?\n%u\n%a\n" :clock-in t)))
-
 (add-to-list 'load-path "~/.emacs.d/plugins/evil-org")
+
 (require 'evil-org)
 (add-hook 'org-mode-hook 'evil-org-mode)
 (evil-org-set-key-theme '(navigation insert textobjects todo additional calendar))
+
 (require 'evil-org-agenda)
 (evil-org-agenda-set-keys)
 
@@ -245,6 +243,8 @@
 ;'("◉" "◎" "<img draggable="false" class="emoji" alt="⚫" src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/26ab.svg">" "○" "►" "◇"))
 '("●" "○" "✸" "✿" "~"))
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(add-hook 'after-init-hook 'org-agenda-list)
 
 ;; EOF newlines
 (setq require-final-newline t)
