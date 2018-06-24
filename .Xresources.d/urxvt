@@ -1,4 +1,4 @@
-!URxvt*depth: 32
+URxvt*depth: 32
 urxvt*background: termbg
 urxvt*foreground: termfg
 URxvt*internalBorder: 15
@@ -16,14 +16,35 @@ URxvt*internalBorder: 15
 !URxvt*font: xft:CtrlD:size=10
 !URxvt*font: xft:Misc Termsyn:size=15
 !URxvt.font: xft:Source Code Pro:size=10,xft:Kochi Gothic:style=ja:size=20:antialias=false
-URxvt.font: xft:Iosevka:size=11,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Iosevka:size=11,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Noto Sans Mono:size=10,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Ubuntu Mono:size=12,xft:Kochi Gothic:style=ja:size=20:antialias=false
+URxvt.font: xft:UbuntuMono Nerd Font Mono:size=12,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Misc Tamsyn:size=10,\
+            !xft:Kochi Gothic:style=ja:size=20:antialias=false,\
+            !xft:lucy tewi:size=10
 URxvt.letterspace: 0
-URxvt.perl-ext-common: default,clipboard
-urxvt*scrollBar: off
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+
+!! extensions
+URxvt.perl-ext-common: default,clipboard,resize-font,url-select,keyboard-select,matcher
+!! clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.clipboard.copycmd: xsel -ib
+!! url-select 
+URxvt.keysym.Shift-Control-U: perl:url-select:select_next
+URxvt.url-select.launcher:    firefox
+URxvt.url-select.underline:   true
+!! resize-font 
+URxvt.resize-font.smaller: C-k
+URxvt.resize-font.bigger: C-j
+!! keyboard-select
+URxvt.keysym.Mod-Escape:      perl:keyboard-select:activate
+!! matcher 
+URxvt.matcher.button: 1
+
+urxvt*scrollBar: off
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.inputMethod: ibus
 URxvt.preeditType: OverTheSpot

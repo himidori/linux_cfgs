@@ -19,7 +19,20 @@
 !#include ".Xresources.d/themes/colorful8"
 !#include ".Xresources.d/themes/bridge"
 !#include ".Xresources.d/themes/colors"
-#include ".Xresources.d/themes/indigo"
+!#include ".Xresources.d/themes/indigo"
+!#include ".Xresources.d/themes/violet"
+!#include ".Xresources.d/themes/ocean"
+!#include ".Xresources.d/themes/moe"
+!#include ".Xresources.d/themes/mute3"
+!#include ".Xresources.d/themes/dark"
+!#include ".Xresources.d/themes/winter"
+!#include ".Xresources.d/themes/tomorrow-night"
+!#include ".Xresources.d/themes/darker"
+!#include ".Xresources.d/themes/moe"
+!#include ".Xresources.d/themes/darkokai"
+#include ".Xresources.d/themes/onedark"
+
+
 
 !-- Xft -- !
 Xft.dpi: 96

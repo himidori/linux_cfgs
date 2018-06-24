@@ -1,10 +1,11 @@
 ### GENERAL SETTINGS ###
 set $mod Mod4
-font pango:CtrlD 10
-for_window [class="^.*"] border pixel 1
+font pango:CtrlD 15
+for_window [class="^.*"] border pixel 4
 
 #### WINDOW TITLE BARS ####
 #for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
+#for_window [class=".*"] title_format "<span font='SF Pro Text 9'> > %title</span>" 
 #for_window [class="^.*"] border normal 0
 
 ### i3-gaps ###
@@ -12,6 +13,7 @@ gaps inner 16
 gaps outer 10
 #smart_gaps on
 smart_borders on
+
 bindsym $mod+s gaps inner current plus 5
 bindsym $mod+Shift+s gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
@@ -19,7 +21,7 @@ bindsym $mod+Shift+z gaps outer current minus 5
 #bindsym $mod+Shift+t gaps inner all set 10; gaps outer all set 4
 bindsym $mod+Shift+t gaps inner all set 16; gaps outer all set 10
 
-
+### BINDS ### 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -33,7 +35,7 @@ bindsym $mod+Shift+x exec ~/Dev/lock.sh
 
 bindsym $mod+o open
 bindsym $mod+c exec "emacs"
-bindsym $mod+r exec "urxvt -e ranger"
+bindsym $mod+r exec urxvt -e ranger
 
 set $dmenu_col "#ee829f"
 set $dmenu_bg "#000"
@@ -46,17 +48,20 @@ bindsym $mod+d exec rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# pass menu
+bindsym $mod+p exec passmenu
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-#shutter
-bindsym Control+Shift+1 exec shutter -a
-bindsym Control+Shift+2 exec shutter -w
-bindsym Control+Shift+3 exec shutter -f
-bindsym Control+Shift+4 exec shutter -s
+#scrot
+# fullscreen screenshot
+bindsym Control+Shift+1 exec scrot 
+# select window or draw screenshot area
+bindsym Control+Shift+2 exec scrot -u
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -150,6 +155,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 ### CUSTOM APP SETTINGS ###
 assign [class="TelegramDesktop"] $workspace2
+assign [class="Pidgin"] $workspace2
 assign [class="Firefox"] $workspace1
 assign [class="Chromium"] $workspace1
 #assign [class="Spotify"] $workspace4
@@ -158,6 +164,7 @@ assign [class="discord"] $workspace6
 assign [class="Anki"] $workspace5
 assign [class="jetbrains-idea"] $workspace3
 assign [class="Pale moon"] $workspace1
+assign [class="Emacs"] $workspace3
 
 for_window [class="Ghb"] floating enable
 for_window [class="Gimp"] floating enable
@@ -169,6 +176,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
 
 for_window [class="feh"] resize set 740 780
 for_window [class="feh"] move position center
@@ -247,14 +255,15 @@ set $urgent-bg2 #e53935
 set_from_resource $fg i3wm.color0 #141414
 set_from_resource $fg2 i3wm.color1 #ffffff
 #set_from_resource $bg i3wm.color2 #B894B0
-set_from_resource $bg i3wm.color2 #8B546F
+#set_from_resource $bg i3wm.color2 #8B546F
+set_from_resource $bg i3wm.color2 #E06C75
 #set focused_bg #141414
 #set $bg #CC6666
 #oldborder = E91E63
 
 client.focused          $bg             $bg             $fg         $bg
-client.unfocused        $fg             $fg             #4E4E4E     #4E4E4E
-client.focused_inactive $fg             $fg             #4E4E4E     #4E4E4E
+client.unfocused        #212121         #212121         #212121     #212121
+client.focused_inactive #212121         #212121         #212121     #212121
 client.urgent           $bg             $bg             $fg         $bg
 
 
@@ -264,16 +273,18 @@ client.urgent           $bg             $bg             $fg         $bg
 exec_always ~/.config/polybar/launch.sh
 #keyboard
 #exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
-exec --no-startup-id setxkbmap us,ru -option 'caps:escape'
+exec_always --no-startup-id setxkbmap us,ru -option 'caps:escape'
 #exec walset ~/.cache/wal/wal
-#exec firefox
-exec chromium
+exec firefox
+#exec chromium
 exec telegram-desktop
 #exec compton --config ~/.compton
 #exec xcompmgr -f
 #exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
-exec compton --config ~/.config/compton.conf -b 
+#exec compton --config ~/.config/compton.conf -b 
 #exec_always setxkbmap -option caps:escape
+#exec xcompmgr -c -r10 -C -o0.8 &
+exec xcompmgr
 #exec setxkbmap -layout us,ru -option caps:escape
 exec feh --bg-scale ~/.config/wallpaper.png
 #exec discord
@@ -281,6 +292,8 @@ exec feh --bg-scale ~/.config/wallpaper.png
 #exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
 #exec_always feh --bg-scale ~/Pictures/wallpapers/space.png
 exec_always xset m 0 0
+exec pidgin
+exec emacs
 #exec ~/notify.sh
 #exec_always --no-startup-id python ~/Dev/python/dunst-fs-block.py
 #exec --no-startup-id wal -i "${HOME}/.cache/wal/wal"

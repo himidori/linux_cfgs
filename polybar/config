@@ -2,36 +2,37 @@
 background = #181818
 background-alt = ${xrdb:color7:#222}
 ;foreground = #C5C8C6
-foreground = #AFAFAF
-foreground-icon = #8B546F
+foreground = #F8FBFC
+foreground-icon = #E06C75
 ;i3-background = #CC6666
 ;i3-background = #444444
 ;i3-background = #292929
 ;i3-background = #2F2C43
-underline = #86373E
-i3-background = #272727
+i3-underline = #E06C75
+i3-urgent = #E5C07B
+i3-background = #2C2E2F
 ;primary = #0088cc
 primary = #8874E6
 secondary = #e60053
 alert = #bd2c40
 
 [sizes]
-bar-width = 1700
+bar-width = 1400
 bar-height = 35
 
-bar-offset-x = 200
+bar-offset-x = 600
 bar-top-gap = 6
 bar-bottom-gap = 15
 
-[bar/example]
+[bar/bar1]
 monitor = ${env:MONITOR}
 bottom = false
-;width = 100%
-;height = 30
+;width = ${sizes.bar-width}
+height = 30
 ;width = ${sizes.bar-width}
 ;height = ${sizes.bar-height}
-;offset-x = 14%
-;offset-y = 2%
+offset-x = 0%
+offset-y = 0%
 ;radius = 4.0
 fixed-center = true
 
@@ -41,7 +42,71 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #ffffff
 
-;border-size = 20
+;border-size = 26
+border-color = #00000000
+;border-left-size = ${sizes.bar-offset-x}
+border-left-color = #00000000
+;border-top-size = ${sizes.bar-top-gap}
+;border-bottom-size = ${sizes.bar-bottom-gap}
+border-bottom-size = 0
+
+padding-left = 0
+padding-right = 3
+
+;module-margin-left = 6
+module-margin-right = 5
+;font-0 = liberation:pixelsize=10;1
+;font-1 = FontAwesome:fontformat=truetype:size=12:antialias=false;0
+;font-2 = awesome:pixelsize=10;1
+
+;font-0 = FontAwesome:size=9;0
+;font-1 = NotoSans-Regular:size=9;0
+;font-2 = Kochi Gothic:size=10;0
+font-0 = FontAwesome:size=9;0
+font-1 = SF Pro Text:size=8;0
+font-2 = Kochi Gothic:size=10;0
+
+modules-left = i3 cmus
+modules-center = 
+modules-right = volume disk date menu0
+
+tray-position = right
+tray-padding = 3
+;tray-transparent = true
+;tray-background = #00000000
+tray-background = #181818
+
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+[bar/bar2]
+monitor = ${env:MONITOR}
+bottom = false
+;width = 70%
+height = 30
+;width = ${sizes.bar-width}
+;height = ${sizes.bar-height}
+;offset-x = 14%
+;offset-y = 2%
+radius = 4.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #ffffff
+
+;border-size = 5
 border-color = #00000000
 ;border-left-size = ${sizes.bar-offset-x}
 ;border-left-color = #00000000
@@ -60,18 +125,19 @@ module-margin-right = 5
 ;font-0 = FontAwesome:size=9;0
 ;font-1 = NotoSans-Regular:size=9;0
 ;font-2 = Kochi Gothic:size=10;0
-font-0 = FontAwesome:size=8;0
-font-1 = lucy tewi:size=11;0
+font-0 = FontAwesome:size=9;0
+font-1 = SF Pro Text:size=8;0
 font-2 = Kochi Gothic:size=10;0
 
-modules-left = i3
-modules-center = cmus
-modules-right = updates volume disk date menu0
+modules-left = i3 cmus
+modules-center = 
+modules-right = volume disk date menu0
 
 ;tray-position = right
-;tray-padding = 3
+tray-padding = 3
 ;tray-transparent = true
 ;tray-background = #00000000
+tray-background = #181818
 
 
 ;wm-restack = bspwm
@@ -125,8 +191,10 @@ exec = /usr/lib/i3blocks/weather
 type = custom/script
 interval = 5
 ;format-prefix = " "
-format-prefix = "  "
+;format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-icon}
+;format-underline = #C678DD
 exec = /usr/lib/i3blocks/disk
 
 [module/cpuload]
@@ -138,10 +206,11 @@ exec = /usr/lib/i3blocks/load_average
 
 [module/cmus]
 type = custom/script
-format-prefix = "  "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-icon}
 interval = 1
 exec = /usr/lib/i3blocks/cmus
+format = %{A1:cmus-remote -u:} <label> %{A}
 
 [module/updates]
 type = custom/script
@@ -185,20 +254,21 @@ label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-foreground = #000
-label-focused-background = ${colors.foreground-icon}
-;label-focused-underline = ${colors.underline}
+;label-focused-foreground = #000
+label-focused-background = ${colors.i3-background}
+label-focused-underline = ${colors.i3-underline}
 ;label-focused-format-underline = #6C5F80
 label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = #848484
 ;label-unfocused-foreground = #616161
 label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-;label-visible-foreground = #616161
+label-visible-foreground = #848484
 ;label-visible-background = ${self.label-focused-background}
 ;label-visible-background = ${colors.background}
 ;label-visible-underline = ${colors.underline}
@@ -206,7 +276,7 @@ label-visible-padding = 3
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = #F0C674
+label-urgent-background = ${colors.i3-urgent}
 ;label-urgent-underline = ${colors.underline}
 label-urgent-foreground = #000
 ;label-urgent-background = #CA2C2C
@@ -310,13 +380,15 @@ format-prefix-foreground = ${colors.foreground-icon}
 
 ;date =  %a, %d/%m, %H:%M
 ;date = %a %d %b, %H:%M
-date = %b %d, %H:%M
+;date = %b %d, %H:%M, %A
+;date = %b %d, %A, %H:%M
+date = %d/%m %H:%M
 ;date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
 ;time-alt = %H:%M:%S
 
-;format-underline = #0a6cf5
+;format-underline = #E06C75
 
 label = %date%
 
@@ -325,6 +397,7 @@ type = internal/alsa
 format-volume = <label-volume>
 format-volume-prefix = "  "
 format-volume-prefix-foreground = ${colors.foreground-icon}
+;format-volume-underline = #56B6C2
 label-volume = %percentage%%
 ;label-volume-foreground = ${root.foreground}
 ;label-volume = %percentage%%
