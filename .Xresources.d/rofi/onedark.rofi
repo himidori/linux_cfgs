@@ -2,7 +2,8 @@
 ! ROFI Color theme - Colorful
 ! ------------------------------------------------------------------------------
 
-rofi.font: Misc Tamsyn 10 
+!rofi.font: Misc Tamsyn 10 
+rofi.font: lucy tewii 8
 rofi.color-enabled: true
 !rofi.fullscreen: true
 rofi.show-match: false
@@ -12,15 +13,15 @@ rofi.lines: 12
 
 ! -color-window background, border color, separator color
 !
-rofi.color-window: #181818, #E06C75, #181818 
+rofi.color-window: #181818, #B1555C, #181818 
 
 ! -color-normal background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-normal: #181818, #B8BABA, #181818, #E06C75, #000
+rofi.color-normal: #181818, #ABB2BF, #181818, #181818, #B1555C
 
 ! -color-active background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-active: #E06C75, #282A2D, #E06C75, #E06C75, #f7f7f7
+rofi.color-active: #B1555C, #282A2D, #B1555C, #B1555C, #f7f7f7
 
 ! -color-urgent background, foreground, background alt, highlight background, highlight foreground
 !

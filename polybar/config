@@ -2,13 +2,14 @@
 background = #181818
 background-alt = ${xrdb:color7:#222}
 ;foreground = #C5C8C6
-foreground = #F8FBFC
-foreground-icon = #E06C75
+;foreground = #F8FBFC
+foreground = #ABB2BF
+foreground-icon = #B1555C
 ;i3-background = #CC6666
 ;i3-background = #444444
 ;i3-background = #292929
 ;i3-background = #2F2C43
-i3-underline = #E06C75
+i3-underline = #B1555C
 i3-urgent = #E5C07B
 i3-background = #2C2E2F
 ;primary = #0088cc
@@ -28,7 +29,7 @@ bar-bottom-gap = 15
 monitor = ${env:MONITOR}
 bottom = false
 ;width = ${sizes.bar-width}
-height = 30
+height = 27
 ;width = ${sizes.bar-width}
 ;height = ${sizes.bar-height}
 offset-x = 0%
@@ -45,7 +46,7 @@ line-color = #ffffff
 ;border-size = 26
 border-color = #00000000
 ;border-left-size = ${sizes.bar-offset-x}
-border-left-color = #00000000
+;border-left-color = #00000000
 ;border-top-size = ${sizes.bar-top-gap}
 ;border-bottom-size = ${sizes.bar-bottom-gap}
 border-bottom-size = 0
@@ -63,7 +64,8 @@ module-margin-right = 5
 ;font-1 = NotoSans-Regular:size=9;0
 ;font-2 = Kochi Gothic:size=10;0
 font-0 = FontAwesome:size=9;0
-font-1 = SF Pro Text:size=8;0
+;font-1 = SF Pro Text:size=8;0
+font-1 = lucy tewii:size=8;0
 font-2 = Kochi Gothic:size=10;0
 
 modules-left = i3 cmus
@@ -126,7 +128,8 @@ module-margin-right = 5
 ;font-1 = NotoSans-Regular:size=9;0
 ;font-2 = Kochi Gothic:size=10;0
 font-0 = FontAwesome:size=9;0
-font-1 = SF Pro Text:size=8;0
+;font-1 = SF Pro Text:size=8;0
+font-1 = lucy tewii:size=8;0
 font-2 = Kochi Gothic:size=10;0
 
 modules-left = i3 cmus
@@ -254,8 +257,8 @@ label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-;label-focused-foreground = #000
-label-focused-background = ${colors.i3-background}
+;label-focused-foreground = #111
+;label-focused-background = ${colors.foreground-icon}
 label-focused-underline = ${colors.i3-underline}
 ;label-focused-format-underline = #6C5F80
 label-focused-padding = 3
@@ -276,9 +279,9 @@ label-visible-padding = 3
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = ${colors.i3-urgent}
+;label-urgent-background = ${colors.i3-urgent}
 ;label-urgent-underline = ${colors.underline}
-label-urgent-foreground = #000
+label-urgent-foreground = #E5C07B
 ;label-urgent-background = #CA2C2C
 label-urgent-padding = 3
 
@@ -382,7 +385,9 @@ format-prefix-foreground = ${colors.foreground-icon}
 ;date = %a %d %b, %H:%M
 ;date = %b %d, %H:%M, %A
 ;date = %b %d, %A, %H:%M
-date = %d/%m %H:%M
+;date = %d/%m %H:%M
+;date = %H:%M
+date =  %H:%M | %d/%m
 ;date-alt = " %Y-%m-%d"
 
 ;time = %H:%M
@@ -391,6 +396,13 @@ date = %d/%m %H:%M
 ;format-underline = #E06C75
 
 label = %date%
+
+[module/cal]
+type = custom/script
+interval = 1
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-icon}
+exec = date "+%A, %b %d"
 
 [module/volume]
 type = internal/alsa
