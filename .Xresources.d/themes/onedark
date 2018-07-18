@@ -6,54 +6,81 @@ URxvt*highlighTextColor: #C0C5CE
 URxvt.internalBorder: 15
 
 !black
-URxvt*color0: #181818
+URxvt*color0: #0C0C0D
 URxvt*color8: #696969
 
 !red
 !URxvt*color1: #E06C75
 !URxvt*color9: #E06C75
-URxvt*color1: #B1555C
-URxvt*color9: #B1555C
+!URxvt*color1: #B1555C
+!URxvt*color9: #B1555C
+!URxvt*color1: #952E2E
+!URxvt*color9: #952E2E
+URxvt*color1: #A43A3A
+URxvt*color9: #A43A3A
+!URxvt*color1: #B14750
+!URxvt*color9: #B14750
+!URxvt*color1: #AA424A
+!URxvt*color9: #AA424A
 
 !green
 !URxvt*color2: #98C379
 !URxvt*color10: #98C379
-URxvt*color2: #6C9559
-URxvt*color10: #6C9559
+!URxvt*color2: #6C9559
+!URxvt*color10: #6C9559
+URxvt*color2: #51773F
+URxvt*color10: #51773F
 
 !yellow
 !URxvt*color3: #E5C07B
 !URxvt*color11: #E5C07B
-URxvt*color3: #BD78A0
-URxvt*color11: #BD78A0
+!URxvt*color3: #BD78A0
+!URxvt*color11: #BD78A0
+!URxvt*color3: #AF6E93
+!URxvt*color11: #AF6E93
+URxvt*color3: #AF567C
+URxvt*color11: #AF567C
 
 !blue
 !URxvt*color4: #61AFEF
 !URxvt*color12: #61AFEF
 !URxvt*color4: #5798CC
 !URxvt*color12: #5798CC
-URxvt*color4: #5285AF
-URxvt*color12: #5285AF
+!URxvt*color4: #5285AF
+!URxvt*color12: #5285AF
+URxvt*color4: #4E80AA
+URxvt*color12: #4E80AA
+!URxvt*color4: #3B73A2
+!URxvt*color12: #3B73A2
 
 !magenta
 !URxvt*color5: #C678DD
 !URxvt*color13: #C678DD
 !URxvt*color5: #AA5FC0
 !URxvt*color13: #AA5FC0
-URxvt*color5: #9957AC
-URxvt*color13: #9957AC
+!URxvt*color5: #9957AC
+!URxvt*color13: #9957AC
+!URxvt*color5: #8D8AC3
+!URxvt*color13: #8D8AC3
+!URxvt*color5: #7E7BB3
+!URxvt*color13: #7E7BB3
+URxvt*color5: #817DC2
+URxvt*color13: #817DC2
 
 !cyan
 !URxvt*color6: #56B6C2
 !URxvt*color14: #56B6C2
-URxvt*color6: #53959D
-URxvt*color14: #53959D
+!URxvt*color6: #53959D
+!URxvt*color14: #53959D
+URxvt*color6: #428A93
+URxvt*color14: #428A93
 
 !white
 URxvt*color7: #ABB2BF
 URxvt*color15: #ABB2BF
 
-#define termbg #181818
+#define termbg #0C0C0D
+!#define termbg #101010
 !#define termfg #F8FBFC
 #define termfg #ABB2BF
 

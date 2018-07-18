@@ -13,15 +13,15 @@ rofi.lines: 12
 
 ! -color-window background, border color, separator color
 !
-rofi.color-window: #181818, #B1555C, #181818 
+rofi.color-window: #0C0C0D, #A43A3A, #0C0C0D 
 
 ! -color-normal background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-normal: #181818, #ABB2BF, #181818, #181818, #B1555C
+rofi.color-normal: #0C0C0D, #ABB2BF, #0C0C0D, #0C0C0D, #A43A3A
 
 ! -color-active background, foreground, background alt, highlight background, highlight foreground
 !
-rofi.color-active: #B1555C, #282A2D, #B1555C, #B1555C, #f7f7f7
+rofi.color-active: #A43A3A, #282A2D, #A43A3A, #A43A3A, #f7f7f7
 
 ! -color-urgent background, foreground, background alt, highlight background, highlight foreground
 !
