@@ -1,0 +1,468 @@
+* General
+** Disable auto-backup
+   #+BEGIN_SRC emacs-lisp
+     (setq make-backup-files nil)
+     (setq auto-save-default nil)
+   #+END_SRC
+** y-or-n
+   #+BEGIN_SRC emacs-lisp
+     (defalias 'yes-or-no-p 'y-or-n-p)
+   #+END_SRC
+** Disable bell
+   #+BEGIN_SRC emacs-lisp
+     (setq ring-bell-function 'ignore)
+   #+END_SRC
+** Better scrolling 
+   #+BEGIN_SRC emacs-lisp
+     (setq scroll-step               1)
+     (setq scroll-margin            10)
+     (setq scroll-conservatively 10000)
+   #+END_SRC
+** Moving between subwords
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'prog-mode-hook 'subword-mode)
+   #+END_SRC
+** Autopair brackets
+   #+BEGIN_SRC emacs-lisp
+     (use-package autopair
+         :ensure t
+         :init (autopair-global-mode))
+   #+END_SRC
+** Highlight brackets
+   #+BEGIN_SRC emacs-lisp
+     (show-paren-mode 1)
+     (setq show-paren-delay 0)
+   #+END_SRC
+** Which key
+   #+BEGIN_SRC emacs-lisp
+     (use-package which-key
+         :ensure t
+         :init (which-key-mode))
+   #+END_SRC
+* Interface
+** Disable GUI elements
+   #+BEGIN_SRC emacs-lisp
+     (menu-bar-mode -1)
+     (tool-bar-mode -1)
+     (scroll-bar-mode -1)
+   #+END_SRC
+** Disable startup message
+   #+BEGIN_SRC emacs-lisp
+     (setq inhibit-startup-message t)
+   #+END_SRC
+** Set font
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'before-make-frame-hook
+               (lambda ()
+                 (add-to-list 'default-frame-alist '(font . "Iosevka-12"))))
+   #+END_SRC
+** Load theme
+   #+BEGIN_SRC emacs-lisp
+     (use-package doom-themes
+       :ensure t
+       :init (load-theme 'doom-tomorrow-night t))
+   #+END_SRC
+** Beacon
+   #+BEGIN_SRC emacs-lisp
+     (use-package beacon
+       :ensure t
+       :init (beacon-mode))
+   #+END_SRC
+* Config edit/reload
+** Edit
+   #+BEGIN_SRC emacs-lisp
+     (defun config-visit ()
+       (interactive)
+       (find-file "~/.emacs.d/config.org"))
+     (global-set-key (kbd "C-c e") 'config-visit)
+   #+END_SRC
+** Reload
+   #+BEGIN_SRC emacs-lisp
+     (defun config-reload ()
+       (interactive)
+       (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+     (global-set-key (kbd "C-c r") 'config-reload)
+   #+END_SRC
+* Indent
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+     (setq-default indent-tabs-mode nil)
+     (setq-default tab-width 4)
+     (setq-default c-basic-offset 4)
+     (setq-default standart-indent 4)
+     (setq-default lisp-body-indent 2)
+     (global-set-key (kbd "RET") 'newline-and-indent)
+   #+END_SRC
+* Modeline
+** Diminish
+   #+BEGIN_SRC emacs-lisp
+     (use-package diminish
+       :ensure t
+       :config
+       (add-hook 'after-init-hook 'hide-stuff)
+       (defun hide-stuff ()
+         (diminish 'rainbow-mode)
+         (diminish 'ivy-mode)
+         (diminish 'evil-commentary-mode)
+         (diminish 'undo-tree-mode)
+         (diminish 'abbrev-mode)
+         (diminish 'evil-org-mode)
+         (diminish 'eldoc-mode)
+         (diminish 'outline-minor-mode)
+         (diminish 'autopair-mode)
+         (diminish 'auto-revert-mode)
+         (diminish 'which-key-mode)
+         (diminish 'beacon-mode))
+
+       (with-eval-after-load 'subword
+         (diminish 'subword-mode)))
+   #+END_SRC
+** Display clock
+   #+BEGIN_SRC emacs-lisp
+     (setq display-time-24hr-format t)
+     (setq display-time-default-load-average nil)
+     (display-time-mode 1)
+   #+END_SRC
+** Show lines and columns on the modeline
+   #+BEGIN_SRC emacs-lisp
+     (line-number-mode 1)
+     (column-number-mode 1)
+   #+END_SRC
+** Nyan mode
+   #+BEGIN_SRC emacs-lisp
+     (use-package nyan-mode
+       :ensure t
+       :config
+       (setq nyan-wavy-trail t)
+       (nyan-mode)
+       (nyan-start-animation))
+   #+END_SRC
+* Neotree
+  #+BEGIN_SRC emacs-lisp
+    (use-package neotree
+      :ensure t
+      :bind ("C-x C-t" . neotree-toggle))
+  #+END_SRC
+* Sudo edit
+  #+BEGIN_SRC emacs-lisp
+    (use-package sudo-edit
+      :ensure t
+      :bind ("M-e" . sudo-edit))
+  #+END_SRC
+* Terminal 
+** Launching ansi-term without confirming which shell to use
+   #+BEGIN_SRC emacs-lisp
+     (defvar my-term "/bin/bash")
+     (defadvice ansi-term (before force-bash)
+       (interactive (list my-term)))
+     (ad-activate 'ansi-term)
+   #+END_SRC
+** Bindings
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "M-RET") 'ansi-term)
+   #+END_SRC
+* Magit
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+     (use-package magit
+         :ensure t
+         :bind ("C-x g" . magit-status))
+   #+END_SRC
+* Evil
+** Main evil setup
+   #+BEGIN_SRC emacs-lisp
+     (use-package evil
+       :ensure t
+       :config
+       (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+       (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+       (evil-mode 1))
+   #+END_SRC
+** Evil-commentary
+   #+BEGIN_SRC emacs-lisp
+     (use-package evil-commentary
+       :ensure t
+       :init
+       (evil-commentary-mode))
+   #+END_SRC
+** Neotree bindings
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'neotree-mode-hook
+               (lambda ()
+                 (define-key evil-normal-state-local-map (kbd "f") 'neotree-enter)
+                 (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+                 (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+                 (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+   #+END_SRC
+** Evil magit
+   #+BEGIN_SRC emacs-lisp
+     (use-package evil-magit
+         :ensure t)
+   #+END_SRC
+** Org
+   #+BEGIN_SRC emacs-lisp
+     (use-package evil-org
+       :ensure t
+       :config
+       (add-hook 'org-mode-hook 'evil-org-mode)
+       (evil-org-set-key-theme
+        '(navigation insert textobjects todo additional calendar)))
+   #+END_SRC
+* Ivy 
+  #+BEGIN_SRC emacs-lisp
+    (use-package ivy
+      :ensure t
+      :config
+      (use-package counsel
+      :ensure t)
+      :init
+      (ivy-mode 1)
+      :bind
+      ("C-x C-b" . ivy-switch-buffer)
+      ("M-x" . counsel-M-x)
+      ("C-h v" . counsel-describe-variable)
+      ("C-h f" . counsel-describe-function)
+      ("C-x C-f" . counsel-find-file)
+      ("C-x C-m" . counsel-imenu))
+  #+END_SRC
+* Avy
+  #+BEGIN_SRC emacs-lisp
+    (use-package avy
+      :ensure t
+      :bind
+      ("M-s" . avy-goto-char))
+  #+END_SRC
+* Rainbow
+** Colored background for hex color codes
+ #+BEGIN_SRC emacs-lisp
+   (use-package rainbow-mode
+     :ensure t
+     :config
+     (add-hook 'prog-mode-hook 'rainbow-mode))
+ #+END_SRC
+** Rainbow delimiters
+   #+BEGIN_SRC emacs-lisp
+     (use-package rainbow-delimiters
+       :ensure t
+       :config
+       (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+   #+END_SRC
+* Org
+** Templates
+   #+BEGIN_SRC emacs-lisp
+     (setq org-src-window-setup 'current-window)
+     (add-to-list 'org-structure-template-alist
+          '("el" "#+BEGIN_SRC emacs-lisp\n\n#+END_SRC"))
+     (add-to-list 'org-structure-template-alist
+          '("py" "#+BEGIN_SRC python\n\n#+END_SRC"))
+   #+END_SRC
+** Set bullets
+   #+BEGIN_SRC emacs-lisp
+     (use-package org-bullets
+       :ensure t
+       :config
+       (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+   #+END_SRC
+* Windows
+** Easier switching between windows
+   #+BEGIN_SRC emacs-lisp
+     (use-package switch-window
+       :ensure t
+       :config
+       (setq switch-window-input-style 'minibuffer)
+       (setq switch-window-increase 4)
+       (setq switch-window-threshold 2)
+       (setq switch-window-shortcut-style 'qwerty)
+       (setq switch-window-qwerty-shortcuts
+         '("a" "s" "d" "f" "g" "h" "j" "k" "l"))
+       :bind
+       ([remap other-window] . switch-window))
+   #+END_SRC
+** Follow window on split
+   #+BEGIN_SRC emacs-lisp
+     (defun split-and-follow-horizontally ()
+       (interactive)
+       (split-window-below)
+       (balance-windows)
+       (other-window 1))
+     (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+     (defun split-and-follow-vertically ()
+       (interactive)
+       (split-window-right)
+       (balance-windows)
+       (other-window 1))
+     (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+   #+END_SRC
+* Buffers
+** Kill current buffer immediately
+   #+BEGIN_SRC emacs-lisp
+     (defun kill-current-buffer()
+       "Kills the current buffer"
+       (interactive)
+       (kill-buffer (current-buffer)))
+     (global-set-key (kbd "C-x k") 'kill-current-buffer)
+   #+END_SRC
+** Kill all buffers
+   #+BEGIN_SRC emacs-lisp
+     (defun kill-all-buffers ()
+       (interactive)
+       (mapc 'kill-buffer (buffer-list)))
+     (global-set-key (kbd "C-M-k") 'kill-all-buffers)
+   #+END_SRC
+** ibuffer
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "C-x b") 'ibuffer)
+     (setq ibuffer-expert t)
+   #+END_SRC
+* Company
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+     (use-package company
+       :ensure t
+       :config
+       (setq company-idle-delay 0)
+       (setq company-minimum-prefix-length 3))
+
+     (with-eval-after-load 'company
+       (define-key company-active-map (kbd "M-n") nil)
+       (define-key company-active-map (kbd "M-p") nil)
+       (define-key company-active-map (kbd "C-n") #'company-select-next)
+       (define-key company-active-map (kbd "C-p") #'company-select-previous))
+   #+END_SRC
+** C / C++
+   #+BEGIN_SRC emacs-lisp
+     (use-package company-irony
+       :ensure t
+       :config
+       (add-to-list 'company-backends 'company-irony))
+
+     (use-package irony
+       :ensure t
+       :config
+       (add-hook 'c++-mode-hook 'irony-mode)
+       (add-hook 'c-mode-hook 'irony-mode)
+       (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+     (with-eval-after-load 'company
+       (add-hook 'c++-mode-hook 'company-mode)
+       (add-hook 'c-mode-hook 'company-mode))
+   #+END_SRC
+** Elisp
+  #+BEGIN_SRC emacs-lisp
+    (with-eval-after-load 'company
+      (add-hook 'emacs-lisp-mode-hook 'company-mode))
+  #+END_SRC 
+** Files
+   #+BEGIN_SRC emacs-lisp
+     (with-eval-after-load 'company
+         (add-to-list 'company-backends 'company-files))
+   #+END_SRC
+* Projectile
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+     (use-package projectile
+       :ensure t
+       :config
+       (setq projectile-completion-system 'ivy)
+       (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+       (global-set-key (kbd "C-c f") 'projectile-find-file)
+       (global-set-key (kbd "C-c b") 'projectile-switch-to-buffer)
+       (projectile-global-mode))
+   #+END_SRC
+** Counsel
+   #+BEGIN_SRC emacs-lisp
+     (use-package counsel-projectile
+       :ensure t
+       :init (counsel-projectile-mode))
+   #+END_SRC
+* Dumb jump
+  #+BEGIN_SRC emacs-lisp
+    (use-package dumb-jump
+      :ensure t
+      :init (dumb-jump-mode))
+  #+END_SRC
+* Web-mode
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+          (use-package web-mode
+            :ensure t
+            :config
+            (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+            (add-to-list 'auto-mode-alist '("\\.gohtml?\\'" . web-mode))
+            (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+            (setq web-mode-enable-auto-closing t)
+            (setq web-mode-enable-auto-quoting t)
+            (add-hook 'web-mode-hook
+                      #'(lambda () (autopair-mode -1))))
+   #+END_SRC
+** Templates
+   #+BEGIN_SRC emacs-lisp
+     (setq web-mode-engines-alist
+           '(("jinja" . "\\.html\\'")))
+   #+END_SRC
+** Indent
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'web-mode-hook 'my-indent)
+     (defun my-indent ()
+       (setq web-mode-markup-indent-offset 2)
+       (setq web-mode-css-indent-offset 2)
+       (setq web-mode-code-indent-offset 2)
+       (setq web-mode-indent-style 2))
+   #+END_SRC
+** Emmet
+   #+BEGIN_SRC emacs-lisp
+     (use-package emmet-mode
+       :ensure t
+       :config
+       (add-hook 'sgml-mode-hook 'emmet-mode)
+       (add-hook 'web-mode-hook 'emmet-mode)
+       (add-hook 'css-mode-hook 'emmet-mode))
+   #+END_SRC
+* Auto-complete
+** Basic setup
+   #+BEGIN_SRC emacs-lisp
+     (use-package auto-complete
+       :ensure t
+       :config
+       (require 'auto-complete-config)
+       (setq ac-auto-start 3)
+       (setq ac-auto-show-menu t)
+       (setq ac-delay 0))
+   #+END_SRC
+** Web-mode
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'ac-sources 'web-mode-ac-sources-alist)
+     (setq web-mode-ac-sources-alist
+           '(("css" . (ac-source-css-property))
+             ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+     (add-hook 'web-mode-hook 'auto-complete-mode)
+   #+END_SRC
+** Go
+*** Basic setup
+    #+BEGIN_SRC emacs-lisp
+      (use-package go-autocomplete
+        :ensure t
+        :config
+        (setq ac-go-gocode-bin "~/.local/go/bin/gocode")
+        (setq gofmt-command "~/.local/go/bin/goimports")
+        (setq godef-command "~/.local/go/bin/godef")
+        (add-hook 'go-mode-hook 'auto-complete-mode)
+        (add-hook 'before-save-hook 'gofmt-before-save))
+        (setenv "GOPATH" "/home/yuimaestro/Dev/go/packages")
+    #+END_SRC
+** Python
+   #+BEGIN_SRC emacs-lisp
+     (use-package elpy
+       :ensure t
+       :config
+       (add-hook 'python-mode-hook
+                 (lambda ()
+                   (local-set-key (kbd "C-c .") 'elpy-goto-definition)))
+       (setq elpy-rpc-python-command "python3")
+       (let ((workon-home (expand-file-name "~/.emacs.d/.python-environments/")))
+            (setenv "WORKON_HOME" workon-home))
+       (pyvenv-workon "default")
+       (elpy-enable))
+   #+END_SRC
+   
