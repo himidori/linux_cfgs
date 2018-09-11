@@ -1,16 +1,22 @@
+## ----------------------------------------------------------------------------------
 ### GENERAL SETTINGS ###
 set $mod Mod4
 font pango:CtrlD 15
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 1
 
+## ----------------------------------------------------------------------------------
 #### WINDOW TITLE BARS ####
 #for_window [class=".*"] title_format "<span font='ypn envypn 9'> > %title</span>" 
 #for_window [class=".*"] title_format "<span font='SF Pro Text 9'> > %title</span>" 
 #for_window [class="^.*"] border normal 0
 
-### i3-gaps ###
-gaps inner 16
-gaps outer 10
+## ----------------------------------------------------------------------------------
+### GAPS ###
+#gaps inner 16
+set $inner 7
+set $outer 12
+gaps inner $inner
+gaps outer $outer
 #smart_gaps on
 smart_borders on
 
@@ -19,8 +25,9 @@ bindsym $mod+Shift+s gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
 #bindsym $mod+Shift+t gaps inner all set 10; gaps outer all set 4
-bindsym $mod+Shift+t gaps inner all set 16; gaps outer all set 10
+bindsym $mod+Shift+t gaps inner all set $inner; gaps outer all set $outer
 
+## ----------------------------------------------------------------------------------
 ### BINDS ### 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -31,10 +38,15 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+Shift+x exec ~/Dev/lock.sh
+# bindsym $mod+Shift+x exec ~/Dev/lock.sh
+bindsym $mod+Shift+x exec ~/.scripts/shutdown.sh
+
+# music 
+bindsym $mod+m exec urxvt -T music -e cmus
 
 bindsym $mod+o open
-bindsym $mod+c exec "emacs"
+# bindsym $mod+c exec "emacs"
+bindsym $mod+c exec "emacsclient -c"
 bindsym $mod+r exec urxvt -e ranger
 
 set $dmenu_col "#ee829f"
@@ -43,13 +55,9 @@ set $dmenu_bg "#000"
 #bindsym $mod+d exec dmenu_run -nb black -sb $dmenu_bg -sf $dmenu_col -fn fixed:style=regular:pixelsize=14
 bindsym $mod+d exec rofi -show run
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # pass menu
-bindsym $mod+p exec passmenu
+#bindsym $mod+p exec passmenu
+bindsym $mod+p exec ~/Dev/go/github/himidori/pm/pm -R
 
 # change focus
 bindsym $mod+h focus left
@@ -110,61 +118,83 @@ bindsym $mod+a focus parent
 set $firstMonitor DVI-D-0
 set $secondMonitor DVI-I-0
 
-set $workspace1 "1:www"
-set $workspace2 "2:chat"
-set $workspace3 "3:dev"
-set $workspace4 "4:mus"
-set $workspace5 "5:rnd"
-set $workspace6 "6:voip"
+#set $workspace1 "1:www"
+#set $workspace2 "2:chat"
+#set $workspace3 "3:dev"
+#set $workspace4 "4:mus"
+#set $workspace5 "5:rnd"
+#set $workspace6 "6:voip"
 
 
-workspace $workspace1 output $secondMonitor
-workspace $workspace2 output $secondMonitor
-workspace $workspace3 output $firstMonitor
-workspace $workspace4 output $firstMonitor
-workspace $workspace5 output $firstMonitor
-workspace $workspace6 output $firstMonitor
+#workspace $workspace1 output $secondMonitor
+#workspace $workspace2 output $secondMonitor
+#workspace $workspace3 output $firstMonitor
+#workspace $workspace4 output $firstMonitor
+#workspace $workspace5 output $firstMonitor
+#workspace $workspace6 output $firstMonitor
 
-
-workspace 1 output $firstMonitor
+workspace 1 output $secondMonitor
 workspace 2 output $secondMonitor
+workspace 3 output $firstMonitor
+workspace 4 output $firstMonitor
+workspace 5 output $firstMonitor
+workspace 6 output $firstMonitor
+
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
+#bindsym $mod+1 workspace $workspace1
+#bindsym $mod+2 workspace $workspace2
+#bindsym $mod+3 workspace $workspace3
+#bindsym $mod+4 workspace $workspace4
+#bindsym $mod+5 workspace $workspace5
+#bindsym $mod+6 workspace $workspace6
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
+#bindsym $mod+Shift+1 move container to workspace $workspace1
+#bindsym $mod+Shift+2 move container to workspace $workspace2
+#bindsym $mod+Shift+3 move container to workspace $workspace3
+#bindsym $mod+Shift+4 move container to workspace $workspace4
+#bindsym $mod+Shift+5 move container to workspace $workspace5
+#bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 ### CUSTOM APP SETTINGS ###
-assign [class="TelegramDesktop"] $workspace2
-assign [class="Pidgin"] $workspace2
-assign [class="Firefox"] $workspace1
-assign [class="Chromium"] $workspace1
-#assign [class="Spotify"] $workspace4
-assign [class="Ghb"] $workspace5
-assign [class="discord"] $workspace6
-assign [class="Anki"] $workspace5
-assign [class="jetbrains-idea"] $workspace3
-assign [class="Pale moon"] $workspace1
-assign [class="Emacs"] $workspace3
+
+assign [class="TelegramDesktop"] workspace 2
+assign [class="Pidgin"]          workspace 2
+assign [class="Firefox"]         workspace 1
+assign [class="Chromium"]        workspace 1
+assign [class="Ghb"]             workspace 5
+assign [class="discord"]         workspace 6
+assign [class="Gimp"]            workspace 5
+assign [class="Anki"]            workspace 5
+assign [class="jetbrains-idea"]  workspace 3
+assign [class="Pale moon"]       workspace 1
+assign [class="Emacs"]           workspace 3
+assign [class="Wine"]            workspace 5
+assign [class="PCSX2"]           workspace 5
+assign [class="qBittorrent"]     workspace 5
+assign [class="Steam"]           workspace 5
+assign [title="music"]           workspace 4
 
 for_window [class="Ghb"] floating enable
 for_window [class="Gimp"] floating enable
@@ -176,14 +206,14 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="VirtualBox Manager"] floating enable
+#for_window [class="VirtualBox Manager"] floating enable
+for_window [class="Wine"] floating enable
 
 for_window [class="feh"] resize set 740 780
 for_window [class="feh"] move position center
 
 for_window [class="Sxiv"] resize set 740 780
 for_window [class="Sxiv"] move position center
-
 
 
 # reload the configuration file
@@ -223,6 +253,63 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+### COLORS ###
+#set $bg-color       #000
+#set $bg-color #202734
+#set $bg-color #000000bf
+#set $bg-color #b9b9b9
+#set $inactive-bg-color  #101010
+#set $text-color         #FFFFFF
+#set $inactive-text-color #797777
+#set $urgent-bg-color    #000
+#set $cyan #1793d1
+#set $pink #ee829f
+#set $bg-color2 #2f343f
+#set $inactive-bg2 #2f343f
+#set $text-color2 #f3f4f5
+#set $inactive-text2 #676e7d
+#set $urgent-bg2 #e53935
+#set_from_resource $fg i3wm.color0 #141414
+#set_from_resource $fg2 i3wm.color1 #ffffff
+#set_from_resource $bg i3wm.color2 #B894B0
+#set_from_resource $bg i3wm.color2 #8B546F
+#set_from_resource $bg i3wm.color2 #6A66B3
+#set focused_bg #141414
+#set $bg #CC6666
+#oldborder = E91E63
+set $bg #CC6666
+set $fg #101010
+
+client.focused          $bg             $bg             $fg         $bg
+client.unfocused        $fg             $fg             $fg         $fg
+client.focused_inactive $fg             $fg             $fg         $fg
+client.urgent           $bg             $bg             $fg         $bg
+
+
+### BAR ###
+#bar {
+#   status_command i3blocks
+#   position top 
+#   height 20
+#   font xft:lucy tewii 8
+
+#   colors {
+        #background #0C0C0D
+        #statusline #ABB2BF
+#       background #1D1F21
+#       statusline #C5C8C6
+                            #border #bg     #fg     
+        #focused_workspace  #D12222 #0C0C0D #D12222
+        #active_workspace   #3D3D3D #0C0C0D #555555
+        #inactive_workspace #3D3D3D #0C0C0D #555555
+        #urgent_workspace   #B3A855 #0C0C0D #B3A855
+#       focused_workspace   #CC6666 #1C1D2B #CC6666
+#       active_workspace    #616161 #1D1F21 #616161
+#       inactive_workspace  #616161 #1D1F21 #616161
+#       urgent_workspace    #F0C674 #1D1F21 #F0C674
+#   }
+#}
+
 #bindsym $mod+r mode "resize"
 
 
@@ -236,44 +323,12 @@ bindsym $mod+F2 exec "amixer -q sset Master,0 2300- unmute"
 bindsym $mod+F1 exec "amixer -q sset Master,0 toggle"
 
 
-### COLORS ###
-#set $bg-color       #000
-#set $bg-color #202734
-#set $bg-color #000000bf
-set $bg-color #b9b9b9
-set $inactive-bg-color   #101010
-set $text-color      #FFFFFF
-set $inactive-text-color #797777
-set $urgent-bg-color     #000
-set $cyan #1793d1
-set $pink #ee829f
-set $bg-color2 #2f343f
-set $inactive-bg2 #2f343f
-set $text-color2 #f3f4f5
-set $inactive-text2 #676e7d
-set $urgent-bg2 #e53935
-set_from_resource $fg i3wm.color0 #141414
-set_from_resource $fg2 i3wm.color1 #ffffff
-#set_from_resource $bg i3wm.color2 #B894B0
-#set_from_resource $bg i3wm.color2 #8B546F
-set_from_resource $bg i3wm.color2 #E06C75
-#set focused_bg #141414
-#set $bg #CC6666
-#oldborder = E91E63
-
-client.focused          $bg             $bg             $fg         $bg
-client.unfocused        #212121         #212121         #212121     #212121
-client.focused_inactive #212121         #212121         #212121     #212121
-client.urgent           $bg             $bg             $fg         $bg
-
-
-
 ### START-UP APPS ###
 #exec dunst
 exec_always ~/.config/polybar/launch.sh
 #keyboard
-#exec --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
-exec_always --no-startup-id setxkbmap us,ru -option 'caps:escape'
+exec_always --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:escape'
+#exec_always --no-startup-id setxkbmap us,ru -option 'caps:escape'
 #exec walset ~/.cache/wal/wal
 exec firefox
 #exec chromium
@@ -286,14 +341,14 @@ exec telegram-desktop
 #exec xcompmgr -c -r10 -C -o0.8 &
 exec xcompmgr
 #exec setxkbmap -layout us,ru -option caps:escape
-exec feh --bg-scale ~/.config/wallpaper.png
+exec feh --bg-fill ~/.config/wallpaper.png
 #exec discord
 #exec_always feh --bg-scale ~/Pictures/wallpapers/1.jpg
 #exec_always feh --bg-scale ~/Pictures/wallpapers/blue.png
 #exec_always feh --bg-scale ~/Pictures/wallpapers/space.png
 exec_always xset m 0 0
 exec pidgin
-exec emacs
+#exec emacs
 #exec ~/notify.sh
 #exec_always --no-startup-id python ~/Dev/python/dunst-fs-block.py
 #exec --no-startup-id wal -i "${HOME}/.cache/wal/wal"
@@ -302,3 +357,4 @@ exec emacs
 #exec palemoon
 #exec xrdb -merge ~/.Xresources
 #exec_always ~/walstartup 
+exec "xset +fp /home/yuimaestro/.fonts/tamsyn"
