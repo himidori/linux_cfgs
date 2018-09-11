@@ -1,0 +1,44 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #C5C8C6
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #262626 
+
+! black
+URxvt*color0:       #1D1F21
+URxvt*color8:       #969896
+
+! red
+URxvt*color1:       #CC6666
+URxvt*color9:       #CC6666
+
+! green
+URxvt*color2:       #B5BD68
+URxvt*color10:      #B5BD68
+
+! yellow
+URxvt*color3:       #F0C674
+URxvt*color11:      #F0C674
+
+! blue
+URxvt*color4:       #81A2BE
+URxvt*color12:      #81A2BE
+
+! magenta
+URxvt*color5:       #B294BB
+URxvt*color13:      #B294BB
+
+! cyan
+!URxvt*color6:      #97B8D5
+!URxvt*color14:     #97B8D5
+URxvt*color6:       #8ABEB7
+URxvt*color14:      #8ABEB7
+
+! white
+URxvt*color7:       #C5C8C6
+URxvt*color15:      #C5C8C6
+
+#define termbg #1D1F21
+#define termfg #C5C8C6
+
+#include "../rofi/tomorrow-night.rofi"

@@ -18,8 +18,27 @@ URxvt*internalBorder: 15
 !URxvt.font: xft:Source Code Pro:size=10,xft:Kochi Gothic:style=ja:size=20:antialias=false
 !URxvt.font: xft:Iosevka:size=11,xft:Kochi Gothic:style=ja:size=20:antialias=false
 !URxvt.font: xft:Noto Sans Mono:size=10,xft:Kochi Gothic:style=ja:size=20:antialias=false
-!URxvt.font: xft:Ubuntu Mono:size=12,xft:Kochi Gothic:style=ja:size=20:antialias=false
-URxvt.font: xft:UbuntuMono Nerd Font Mono:size=12,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Ubuntu Mono:pixelsize=15,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:UbuntuMono Nerd Font Mono:size=12,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: xft:Inconsolata:size=11,xft:Kochi Gothic:style=ja:size=20:antialias=false
+!URxvt.font: -windows-dina-medium-r-normal--12-90-96-96-c-70-iso8859-1,xft:Kochi Gothic:style=ja:size=20:antialias=false,\
+            -lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1
+
+!URxvt.font: -misc-tamsyn-medium-r-normal--14-101-100-100-c-70-iso8859-1,xft:Kochi Gothic:style=ja:size=20:antialias=false,\
+            -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+
+!URxvt*font: xft:Ubuntu Mono:size=12
+!URxvt*font: xft:Ubuntu Mono derivative Powerline:size=12
+URxvt*font: xft:Iosevka:size=12
+
+!URxvt.font: xft:Ubuntu Mono:pixelsize=14,xft:Kochi Gothic:style=ja:size=20:antialias=false,\
+            -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+
+!URxvt*font:              xft:Ubuntu Mono:pixelsize=20:style=regular
+!URxvt*boldFont:          xft:Ubuntu Mono:pixelsize=20
+!URxvt*italicFont:    xft:Ubuntu Mono:pixelsize=20
+!URxvt*boldItalicFont: xft:Ubuntu Mono:pixelsize=20
+
 !URxvt.font: xft:Misc Tamsyn:size=10,\
             !xft:Kochi Gothic:style=ja:size=20:antialias=false,\
             !xft:lucy tewi:size=10
