@@ -13,7 +13,8 @@
                                                  
                                                  
 [global]
-    font = Noto Sans 9
+    #font = SF Pro Text 9
+    font = Noto Sans 10
     #font = CtrlD 10
     #font = Misc Termsyn 11
     
@@ -88,7 +89,7 @@
     #geometry = "300x10-20+45"
 
     #notification_height = 30
-    geometry = "300x30-20+45"
+    geometry = "335-20+45"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -175,7 +176,7 @@
 
 [frame]
     width = 1
-    color = "#8B546F"
+    color = "#CC6666"
 
 [shortcuts]
 
@@ -203,18 +204,18 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#1d2021"
     #background = "#231F20"
-    background = "#181818"
-    foreground = "#AFAFAF"
+    background = "#1D1F21"
+    foreground = "#C5C8C6"
     timeout = 5
 
 [urgency_normal]
-    background = "#181818"
-    foreground = "#AFAFAF"
+    background = "#1D1F21"
+    foreground = "#C5C8C6"
     timeout = 5
 
 [urgency_critical]
-    background = "181818"
-    foreground = "#AFAFAF"
+    background = "#1D1F21"
+    foreground = "#C5C8C6"
     timeout = 0
 
 
@@ -240,6 +241,7 @@
 [todo]
     appname = todo
     format = "<b>%s</b>\n%b"
+
 
 #[espeak]
 #    summary = "*"
