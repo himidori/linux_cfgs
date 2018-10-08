@@ -54,7 +54,7 @@
    #+BEGIN_SRC emacs-lisp
      (add-hook 'before-make-frame-hook
                (lambda ()
-                 (add-to-list 'default-frame-alist '(font . "Iosevka-12"))))
+                 (add-to-list 'default-frame-alist '(font . "Hack-12"))))
    #+END_SRC
 ** Load theme
    #+BEGIN_SRC emacs-lisp
@@ -159,7 +159,19 @@
    #+END_SRC
 ** Bindings
    #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "M-RET") 'ansi-term)
+     (global-set-key (kbd "M-RET") 'eshell)
+   #+END_SRC
+** Clearing eshell
+   #+BEGIN_SRC emacs-lisp
+     (defun eshell-clear-buffer ()
+       "Clear terminal"
+       (interactive)
+       (let ((inhibit-read-only t))
+         (erase-buffer)
+         (eshell-send-input)))
+     (add-hook 'eshell-mode-hook
+               '(lambda()
+                  (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
    #+END_SRC
 * Magit
 ** Basic setup
@@ -283,16 +295,23 @@
      (defun split-and-follow-horizontally ()
        (interactive)
        (split-window-below)
-       (balance-windows)
+       ;(balance-windows)
        (other-window 1))
      (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
 
      (defun split-and-follow-vertically ()
        (interactive)
        (split-window-right)
-       (balance-windows)
+       ;(balance-windows)
        (other-window 1))
      (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+   #+END_SRC
+** Resizing windows
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "<M-C-up>") 'shrink-window)
+     (global-set-key (kbd "<M-C-down>") 'enlarge-window)
+     (global-set-key (kbd "<M-C-left>") 'shrink-window-horizontally)
+     (global-set-key (kbd "<M-C-right>") 'enlarge-window-horizontally)
    #+END_SRC
 * Buffers
 ** Kill current buffer immediately
@@ -426,9 +445,11 @@
        :ensure t
        :config
        (require 'auto-complete-config)
-       (setq ac-auto-start 3)
-       (setq ac-auto-show-menu t)
-       (setq ac-delay 0))
+       ;(ac-config-default)
+       (setq global-auto-complete-mode nil)
+       (setq ac-auto-start 3))
+       ;(setq ac-auto-show-menu t)
+       ;(setq ac-delay 0))
    #+END_SRC
 ** Web-mode
    #+BEGIN_SRC emacs-lisp
@@ -465,4 +486,5 @@
        (pyvenv-workon "default")
        (elpy-enable))
    #+END_SRC
+   
    
