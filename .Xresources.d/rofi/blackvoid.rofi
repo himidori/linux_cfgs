@@ -1,0 +1,32 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme - blackvoid
+! ------------------------------------------------------------------------------
+
+!rofi.font: Noto Sans Mono 10
+!rofi.font: Iosevka 11
+rofi.font: Hack 11
+rofi.color-enabled: true
+rofi.show-match: false
+rofi.hide-scrollbar: true
+rofi.width: 400
+rofi.lines: 8
+rofi.location: 1
+rofi.yoffset: 40
+rofi.xoffset: 40
+rofi.line-padding: 3
+
+! -color-window background, border color, separator color
+!
+rofi.color-window: #000000, #B18FB5, #000000 
+
+! -color-normal background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-normal: #000000, #BABABA, #000000, #2C2E2F, #BABABA
+
+! -color-active background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-active: #86373E, #282A2D, #86373E, #86373E, #f7f7f7
+
+! -color-urgent background, foreground, background alt, highlight background, highlight foreground
+!
+rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3

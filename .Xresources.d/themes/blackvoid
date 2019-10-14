@@ -1,0 +1,42 @@
+URxvt.scrollBar: false
+URxvt*cursorColor: #C5C8C6
+URxvt*scrollColor: #98999C
+URxvt*highlightColor: #252936
+URxvt*highlighTextColor: #262626 
+
+! black
+URxvt*color0:       #000000
+URxvt*color8:       #969896
+
+! red
+URxvt*color1:       #BF5460
+URxvt*color9:       #BF5460
+
+! green
+URxvt*color2:       #8DB78A
+URxvt*color10:      #8DB78A
+
+! yellow
+URxvt*color3:       #B18FB5
+URxvt*color11:      #B18FB5
+
+! blue
+URxvt*color4:       #698EA2
+URxvt*color12:      #698EA2
+
+! magenta
+URxvt*color5:       #E9AFD8
+URxvt*color13:      #E9AFD8
+
+! cyan
+URxvt*color6:       #82B8A9
+URxvt*color14:      #82B8A9
+
+! white
+URxvt*color7:       #BABABA
+URxvt*color15:      #BABABA
+
+#define termbg #000000
+#define termfg #BABABA
+
+#include "../rofi/blackvoid.rofi"

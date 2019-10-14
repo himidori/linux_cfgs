@@ -1,2 +1,2 @@
 # current look
-![desktop](https://i.imgur.com/eb5DEcC.png)
+![desktop](https://i.imgur.com/k4lhoqe.jpg)

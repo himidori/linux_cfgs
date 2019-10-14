@@ -2,7 +2,9 @@
 ### GENERAL SETTINGS ###
 set $mod Mod4
 font pango:CtrlD 15
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
+
+border_radius 8
 
 ## ----------------------------------------------------------------------------------
 #### WINDOW TITLE BARS ####
@@ -13,8 +15,8 @@ for_window [class="^.*"] border pixel 1
 ## ----------------------------------------------------------------------------------
 ### GAPS ###
 #gaps inner 16
-set $inner 7
-set $outer 12
+set $inner 12
+set $outer 15
 gaps inner $inner
 gaps outer $outer
 #smart_gaps on
@@ -333,6 +335,7 @@ exec_always --no-startup-id setxkbmap us,ru -option 'grp:alt_shift_toggle,caps:e
 exec firefox
 #exec chromium
 exec telegram-desktop
+exec compton --config ~/.config/compton.conf --focus-exclude '_NET_WM_NAME@:s = "rofi"' -b
 #exec compton --config ~/.compton
 #exec xcompmgr -f
 #exec compton --config ~/.config/compton.conf --resize-damage 3 -b 
@@ -358,3 +361,5 @@ exec pidgin
 #exec xrdb -merge ~/.Xresources
 #exec_always ~/walstartup 
 exec "xset +fp /home/yuimaestro/.fonts/tamsyn"
+exec_always xset m 0 0
+exec_always xset r rate 200 50

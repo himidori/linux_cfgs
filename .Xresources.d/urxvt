@@ -1,7 +1,7 @@
 URxvt*depth: 32
 urxvt*background: termbg
 urxvt*foreground: termfg
-URxvt*internalBorder: 15
+URxvt*internalBorder: 30
 !URxvt*background: rgba:0000/0000/0000/c800
 !URxvt*background: rgba:0000/0000/0000/A600
 !URxvt.transparent: true
