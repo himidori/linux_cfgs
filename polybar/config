@@ -35,9 +35,9 @@ font-0 = FontAwesome:size=9;1
 font-1 = Noto Sans:size=10;0
 font-2 = Kochi Gothic:size=10;0
 
-modules-left = cmus
-modules-center = i3
-modules-right = volume disk date
+modules-left = i3 cmus
+modules-center = date
+modules-right = volume disk 
 
 tray-position = right
 tray-padding = 0
